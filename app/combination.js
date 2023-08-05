@@ -43,8 +43,8 @@ export default function Combination() {
                     />
                 )}
             </div>
-            <div className="mt-6 mx-auto grid grid-cols-4 h-[73vh] text-3xl">
-                <div className="text-end grid gap-5">
+            <div className="mt-6 mx-auto grid grid-cols-4 h-[60vh] text-2xl">
+                <div className="text-end grid">
                     <p>1</p>
                     <p className="collapse">2</p>
                     <p className="collapse">3</p>
@@ -55,8 +55,10 @@ export default function Combination() {
                     <p className="collapse">8</p>
                     <p className="collapse">9</p>
                     <p>10</p>
+                    <p className="collapse">x</p>
+                    <p className="collapse">x</p>
                 </div>
-                <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid gap-5">
+                <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid">
                     <p>{code[0]}{code[1]}{code[2]}</p>
                     <p>{code[0]}{code[1]}{code[3]}</p>
                     <p>{code[0]}{code[1]}{code[4]}</p>
@@ -67,8 +69,10 @@ export default function Combination() {
                     <p>{code[2]}{code[3]}{code[4]}</p>
                     <p>{code[2]}{code[3]}{code[5]}</p>
                     <p>{code[2]}{code[3]}{code[0]}</p>
+                    <p className="collapse">x</p>
+                    <p className="collapse">x</p>
                 </div>
-                <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid gap-5">
+                <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid">
                     <p>{code[3]}{code[4]}{code[5]}</p>
                     <p>{code[3]}{code[4]}{code[0]}</p>
                     <p>{code[3]}{code[4]}{code[1]}</p>
@@ -79,8 +83,10 @@ export default function Combination() {
                     <p>{code[5]}{code[0]}{code[3]}</p>
                     <p>{code[5]}{code[1]}{code[3]}</p>
                     <p>{code[0]}{code[2]}{code[4]}</p>
+                    <input type="number" className="w-14 ring-2" />
+                    <input type="number" className="w-14 ring-2" />
                 </div>
-                <div className="grid gap-5">
+                <div className="grid">
                     <p>11</p>
                     <p className="collapse">2</p>
                     <p className="collapse">3</p>
@@ -91,6 +97,8 @@ export default function Combination() {
                     <p className="collapse">8</p>
                     <p className="collapse">9</p>
                     <p>20</p>
+                    <p className="collapse">x</p>
+                    <p className="collapse">x</p>
                 </div>
             </div>
         </div>
