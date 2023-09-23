@@ -38,7 +38,7 @@ export default function Combination() {
                         onKeyDown={(e) => handleKeyDown(index, e.key)}
                         onFocus={(e) => e.target.select()}
                         placeholder="X"
-                        className={`${index === 3 && 'order-last'} ${index === 4 && 'order-5'} ${index === 5 && 'order-4'} text-3xl bg-yellow-100 placeholder-gray-400 text-center font-normal w-full py-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-gray-400 ${index === 0 && 'border-r-2 border-b-2'} ${index === 1 && 'border-x-2 border-b-2'} ${index === 2 && 'border-l-2 border-b-2'} ${index === 3 && 'border-l-2 border-t-2'} ${index === 4 && 'border-x-2 border-t-2'} ${index === 5 && 'border-r-2 border-t-2'}`}
+                        className={`${index === 0 && 'order-3'} ${index === 1 && 'order-2'} ${index === 2 && 'order-1'} ${index === 3 && 'order-4'} ${index === 4 && 'order-5'} ${index === 5 && 'order-6'} text-3xl bg-yellow-100 placeholder-gray-400 text-center font-normal w-full py-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-gray-400 ${index === 0 && 'border-r-2 border-b-2'} ${index === 1 && 'border-x-2 border-b-2'} ${index === 2 && 'border-l-2 border-b-2'} ${index === 3 && 'border-l-2 border-t-2'} ${index === 4 && 'border-x-2 border-t-2'} ${index === 5 && 'border-r-2 border-t-2'}`}
                         key={index}
                     />
                 )}
