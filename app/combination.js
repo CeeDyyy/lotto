@@ -6,6 +6,8 @@ export default function Combination() {
     const digits = 6
     const digitRefs = useRef([]);
     const [code, setCode] = useState([])
+    const type = ["3 ตัว คิม", "3 ตัว ปุ้มปุ้ย", "ลาว คิม", "ลาว ปุ้มปุ้ย"]
+    const [typeIndex, setTypeIndex] = useState(0)
 
     function setCodeArray(index, value) {
         var arr = [...code]
@@ -43,62 +45,65 @@ export default function Combination() {
                     />
                 )}
             </div>
-            <div className="mt-6 mx-auto grid grid-cols-4 h-[60vh] text-2xl">
-                <div className="text-end grid">
-                    <p>1</p>
-                    <p className="collapse">2</p>
-                    <p className="collapse">3</p>
-                    <p className="collapse">4</p>
-                    <p className="collapse">5</p>
-                    <p className="collapse">6</p>
-                    <p className="collapse">7</p>
-                    <p className="collapse">8</p>
-                    <p className="collapse">9</p>
-                    <p>10</p>
-                    <p className="collapse">x</p>
-                    <p className="collapse">x</p>
-                </div>
-                <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid">
-                    <p>{code[0]}{code[1]}{code[2]}</p>
-                    <p>{code[0]}{code[1]}{code[3]}</p>
-                    <p>{code[0]}{code[1]}{code[4]}</p>
-                    <p>{code[0]}{code[1]}{code[5]}</p>
-                    <p>{code[1]}{code[2]}{code[3]}</p>
-                    <p>{code[1]}{code[2]}{code[4]}</p>
-                    <p>{code[1]}{code[2]}{code[5]}</p>
-                    <p>{code[2]}{code[3]}{code[4]}</p>
-                    <p>{code[2]}{code[3]}{code[5]}</p>
-                    <p>{code[2]}{code[3]}{code[0]}</p>
-                    <p className="collapse">x</p>
-                    <p className="collapse">x</p>
-                </div>
-                <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid">
-                    <p>{code[3]}{code[4]}{code[5]}</p>
-                    <p>{code[3]}{code[4]}{code[0]}</p>
-                    <p>{code[3]}{code[4]}{code[1]}</p>
-                    <p>{code[4]}{code[5]}{code[0]}</p>
-                    <p>{code[4]}{code[5]}{code[1]}</p>
-                    <p>{code[4]}{code[5]}{code[2]}</p>
-                    <p>{code[5]}{code[0]}{code[2]}</p>
-                    <p>{code[5]}{code[0]}{code[3]}</p>
-                    <p>{code[5]}{code[1]}{code[3]}</p>
-                    <p>{code[0]}{code[2]}{code[4]}</p>
-                    <input type="number" className="w-14 ring-2" />
-                    <input type="number" className="w-14 ring-2" />
-                </div>
-                <div className="grid">
-                    <p>11</p>
-                    <p className="collapse">2</p>
-                    <p className="collapse">3</p>
-                    <p className="collapse">4</p>
-                    <p className="collapse">5</p>
-                    <p className="collapse">6</p>
-                    <p className="collapse">7</p>
-                    <p className="collapse">8</p>
-                    <p className="collapse">9</p>
-                    <p>20</p>
-                    <p className="collapse">x</p>
-                    <p className="collapse">x</p>
+            <div className="flex">
+                <button onClick={() => typeIndex < 3 ? setTypeIndex(typeIndex + 1) : setTypeIndex(0)} className="w-24">{type[typeIndex]}</button>
+                <div className="mt-6 mx-auto grid grid-cols-4 h-[60vh] text-2xl">
+                    <div className="text-end grid">
+                        <p>1</p>
+                        <p className="collapse">2</p>
+                        <p className="collapse">3</p>
+                        <p className="collapse">4</p>
+                        <p className="collapse">5</p>
+                        <p className="collapse">6</p>
+                        <p className="collapse">7</p>
+                        <p className="collapse">8</p>
+                        <p className="collapse">9</p>
+                        <p>10</p>
+                        <p className="collapse">x</p>
+                        <p className="collapse">x</p>
+                    </div>
+                    <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid">
+                        <p>{code[0]}{code[1]}{code[2]}</p>
+                        <p>{code[0]}{code[1]}{code[3]}</p>
+                        <p>{code[0]}{code[1]}{code[4]}</p>
+                        <p>{code[0]}{code[1]}{code[5]}</p>
+                        <p>{code[1]}{code[2]}{code[3]}</p>
+                        <p>{code[1]}{code[2]}{code[4]}</p>
+                        <p>{code[1]}{code[2]}{code[5]}</p>
+                        <p>{code[2]}{code[3]}{code[4]}</p>
+                        <p>{code[2]}{code[3]}{code[5]}</p>
+                        <p>{code[2]}{code[3]}{code[0]}</p>
+                        <p className="collapse">x</p>
+                        <p className="collapse">x</p>
+                    </div>
+                    <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid">
+                        <p>{code[3]}{code[4]}{code[5]}</p>
+                        <p>{code[3]}{code[4]}{code[0]}</p>
+                        <p>{code[3]}{code[4]}{code[1]}</p>
+                        <p>{code[4]}{code[5]}{code[0]}</p>
+                        <p>{code[4]}{code[5]}{code[1]}</p>
+                        <p>{code[4]}{code[5]}{code[2]}</p>
+                        <p>{code[5]}{code[0]}{code[2]}</p>
+                        <p>{code[5]}{code[0]}{code[3]}</p>
+                        <p>{code[5]}{code[1]}{code[3]}</p>
+                        <p>{code[0]}{code[2]}{code[4]}</p>
+                        <input type="number" className="w-14 ring-2" />
+                        <input type="number" className="w-14 ring-2" />
+                    </div>
+                    <div className="grid">
+                        <p>11</p>
+                        <p className="collapse">2</p>
+                        <p className="collapse">3</p>
+                        <p className="collapse">4</p>
+                        <p className="collapse">5</p>
+                        <p className="collapse">6</p>
+                        <p className="collapse">7</p>
+                        <p className="collapse">8</p>
+                        <p className="collapse">9</p>
+                        <p>20</p>
+                        <p className="collapse">x</p>
+                        <p className="collapse">x</p>
+                    </div>
                 </div>
             </div>
         </div>
