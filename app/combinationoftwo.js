@@ -45,22 +45,26 @@ export default function CombinationOfTwo() {
                     />
                 )}
             </div>
-            <div className="mt-4 mx-auto text-2xl">
-                <p>{code[0]}{code[1]}</p>
-                <p>{code[0]}{code[2]}</p>
-                <p>{code[0]}{code[3]}</p>
-                <p>{code[0]}{code[4]}</p>
-                <p>{code[0]}{code[5]}</p>
-                <p>{code[1]}{code[2]}</p>
-                <p>{code[1]}{code[3]}</p>
-                <p>{code[1]}{code[4]}</p>
-                <p>{code[1]}{code[5]}</p>
-                <p>{code[2]}{code[3]}</p>
-                <p>{code[2]}{code[4]}</p>
-                <p>{code[2]}{code[5]}</p>
-                <p>{code[3]}{code[4]}</p>
-                <p>{code[3]}{code[5]}</p>
-                <p>{code[4]}{code[5]}</p>
+            <div className="mt-4 mx-auto grid grid-cols-2 gap-x-8 text-4xl">
+                <div>
+                    <p>{code[0]}{code[1]}</p>
+                    <p>{code[0]}{code[2]}</p>
+                    <p>{code[0]}{code[3]}</p>
+                    <p>{code[0]}{code[4]}</p>
+                    <p>{code[0]}{code[5]}</p>
+                    <p>{code[1]}{code[2]}</p>
+                    <p>{code[1]}{code[3]}</p>
+                    <p>{code[1]}{code[4]}</p>
+                </div>
+                <div>
+                    <p>{code[1]}{code[5]}</p>
+                    <p>{code[2]}{code[3]}</p>
+                    <p>{code[2]}{code[4]}</p>
+                    <p>{code[2]}{code[5]}</p>
+                    <p>{code[3]}{code[4]}</p>
+                    <p>{code[3]}{code[5]}</p>
+                    <p>{code[4]}{code[5]}</p>
+                </div>
             </div>
         </div>
     )
