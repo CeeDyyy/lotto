@@ -5,6 +5,7 @@ import Combination from "./combination";
 import CombinationOfTwo from "./combinationoftwo";
 import Switch from "./switch";
 import SetXBaht from "./setxbaht";
+import UpDown from "./updown";
 
 export default function Home() {
   const [page, setPage] = useState("combination")
@@ -23,8 +24,8 @@ export default function Home() {
           สูตร 1
         </button>
         <button
-          onClick={() => setPage("two")}
-          className={`py-3 ${page === "two"
+          onClick={() => setPage("updown")}
+          className={`py-3 ${page === "updown"
             ? "bg-gray-100"
             : "bg-white hover:bg-gray-100 active:bg-gray-300"
             } duration-300`}
@@ -44,6 +45,7 @@ export default function Home() {
 
       {page === "combination" && <Combination />}
       {page === "two" && <CombinationOfTwo />}
+      {page === "updown" && <UpDown />}
       {page === "switch" && <Switch />}
       {page === "setxbaht" && <SetXBaht />}
     </div>
