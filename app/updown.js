@@ -43,22 +43,7 @@ function OneUpDown() {
     const [swipeRight, setSwipeRight] = useState("");
 
     return (
-        <div className="grid grid-cols-4">
-            <div className="border-x-2 pt-2">
-                <p className="text-end collapse">0</p>
-                <p className="text-end collapse">1</p>
-                <p className="text-end collapse">2</p>
-                <p className="text-end collapse">3</p>
-                <p className="text-end collapse">4</p>
-                <p className="text-end collapse">5</p>
-                <p className="text-end collapse">6</p>
-                <p className="text-end collapse">7</p>
-                <p className="text-end collapse">8</p>
-                <p className="text-end collapse">9</p>
-                <p className="text-end collapse">10</p>
-                <p className="text-end">วิ่ง</p>
-                <p className="text-end">รูด</p>
-            </div>
+        <div className="grid grid-cols-3">
             <div className="border-x-2">
                 <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="pt-1 w-full">{name[nameIndex]}</button>
                 <input type="number" className="w-full text-end border-2" />
