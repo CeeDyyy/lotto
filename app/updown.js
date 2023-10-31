@@ -15,7 +15,7 @@ export default function UpDown() {
 }
 
 function OneUpDown() {
-    const name = ["ยาย", "ดา", "อจ.", "นช", ""]
+    const name = ["ยาย", "ดา", "อจ.", "นช", "_"]
     const [nameIndex, setNameIndex] = useState(0)
     const [up1, setUp1] = useState("");
     const [up2, setUp2] = useState("");
@@ -46,7 +46,7 @@ function OneUpDown() {
         <div className="grid grid-cols-4">
             <div className="border-x-2 pt-2">
                 <p className="text-end collapse">0</p>
-                <p className="text-end">1</p>
+                <p className="text-end collapse">1</p>
                 <p className="text-end collapse">2</p>
                 <p className="text-end collapse">3</p>
                 <p className="text-end collapse">4</p>
@@ -55,12 +55,12 @@ function OneUpDown() {
                 <p className="text-end collapse">7</p>
                 <p className="text-end collapse">8</p>
                 <p className="text-end collapse">9</p>
-                <p className="text-end">10</p>
+                <p className="text-end collapse">10</p>
                 <p className="text-end">วิ่ง</p>
                 <p className="text-end">รูด</p>
             </div>
             <div className="border-x-2">
-                <button onClick={() => nameIndex < 3 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="pt-1 w-full">{name[nameIndex]}</button>
+                <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="pt-1 w-full">{name[nameIndex]}</button>
                 <input type="number" className="w-full text-end border-2" />
                 <input type="number" className="w-full text-end border-2" />
                 <input type="number" className="w-full text-end border-2" />
