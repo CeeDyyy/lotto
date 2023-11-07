@@ -56,23 +56,23 @@ export default function BuyandWin() {
                 </div>
                 <div className="border-x-2">
                     <p className="pt-1 w-full text-center">ยอดซื้อ</p>
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setBuy1(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setBuy2(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setBuy3(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setBuy4(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setBuy5(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setBuy6(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy1(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy2(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy3(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy4(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy5(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy6(e.target.value)} />
                     <p className="pt-1">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)}</p>
                     <p className="pt-1">{finalResult}</p>
                 </div>
                 <div className="border-x-2">
                     <p className="pt-1 w-full text-center">ยอดรับ</p>
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setWin1(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setWin2(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setWin3(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setWin4(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setWin5(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onChange={(e) => setWin6(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin1(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin2(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin3(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin4(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin5(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin6(e.target.value)} />
                     <p className="pt-1">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6)}</p>
                 </div>
             </div>
