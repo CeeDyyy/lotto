@@ -6,6 +6,7 @@ import CombinationOfTwo from "./combinationoftwo";
 import Switch from "./switch";
 import SetXBaht from "./setxbaht";
 import UpDown from "./updown";
+import BuyandWin from "./buyandwin";
 
 export default function Home() {
   const [page, setPage] = useState("combination")
@@ -33,8 +34,8 @@ export default function Home() {
           สูตร 2
         </button>
         <button
-          onClick={() => setPage("setxbaht")}
-          className={`py-3 ${page === "setxbaht"
+          onClick={() => setPage("buyandwin")}
+          className={`py-3 ${page === "buyandwin"
             ? "bg-gray-100"
             : "bg-white hover:bg-gray-100 active:bg-gray-300"
             } duration-300`}
@@ -48,6 +49,7 @@ export default function Home() {
       {page === "updown" && <UpDown />}
       {page === "switch" && <Switch />}
       {page === "setxbaht" && <SetXBaht />}
+      {page === "buyandwin" && <BuyandWin />}
     </div>
   )
 }
