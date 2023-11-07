@@ -52,7 +52,7 @@ export default function BuyandWin() {
                     <p className="pt-0.5 w-full text-end border-2">ลาวพัฒนา</p>
                     <p className="pt-0.5 w-full text-end border-2">ลาวสามัคคี</p>
                     <p className="pt-0.5 collapse">x</p>
-                    <p className="pt-0.5 w-full text-end border-2">{resultContent}</p>
+                    <p className="pt-0.5 w-full text-end border-2 font-bold">{resultContent}</p>
                 </div>
                 <div className="border-x-2">
                     <p className="pt-1 w-full text-center">ยอดซื้อ</p>
@@ -63,7 +63,7 @@ export default function BuyandWin() {
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy5(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy6(e.target.value)} />
                     <p className="pt-1">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)}</p>
-                    <p className="pt-1">{finalResult}</p>
+                    <p className="pt-1 font-bold">{finalResult}</p>
                 </div>
                 <div className="border-x-2">
                     <p className="pt-1 w-full text-center">ยอดรับ</p>
