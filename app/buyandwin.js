@@ -51,7 +51,7 @@ export default function BuyandWin() {
                     <p className="pt-0.5 w-full text-end border-2">VIP</p>
                     <p className="pt-0.5 w-full text-end border-2">ลาวพัฒ</p>
                     <p className="pt-0.5 w-full text-end border-2">ลาวสา</p>
-                    <p className="pt-0.5 collapse">x</p>
+                    <input type="date" placeholder="DD/MM/YY" />
                     <p className="pt-0.5 w-full text-end border-2 font-bold">{resultContent}</p>
                 </div>
                 <div className="border-x-2">
