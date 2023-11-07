@@ -21,7 +21,7 @@ export default function BuyandWin() {
     const [resultContent, setResultContent] = useState("สุทธิ")
 
     useEffect(() => {
-        setFinalResult(Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) - Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6))
+        setFinalResult((Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6)) - (Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)))
     }, [buy1, buy2, buy3, buy4, buy5, buy6, win1, win2, win3, win4, win5, win6])
 
     useEffect(() => {
@@ -63,7 +63,7 @@ export default function BuyandWin() {
                     <input type="number" className="w-full text-end border-2" onChange={(e) => setBuy5(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onChange={(e) => setBuy6(e.target.value)} />
                     <p className="pt-1">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)}</p>
-                    <p className="pt-1">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) - Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)}</p>
+                    <p className="pt-1">{finalResult}</p>
                 </div>
                 <div className="border-x-2">
                     <p className="pt-1 w-full text-center">ยอดรับ</p>
