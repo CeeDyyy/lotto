@@ -33,17 +33,17 @@ export default function BuyandWin() {
             <div className="grid grid-cols-3 text-2xl">
                 <div className="border-x-2">
                     <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="pt-1 w-full">{name[nameIndex]}</button>
-                    <select className="pt-0.5 w-full text-end border-2">
+                    <select className="pt-0.5 w-full text-end border-2 text-base">
                         <option>เฉพาะกิจ</option>
                         <option>รัฐบาล</option>
                     </select>
                     <br />
-                    <select className="pt-0.5 w-full text-end border-2">
+                    <select className="pt-0.5 w-full text-end border-2 text-base">
                         <option>พิเศษ</option>
                         <option>ออมสิน</option>
                     </select>
                     <br />
-                    <select className="pt-0.5 w-full text-end border-2">
+                    <select className="pt-0.5 w-full text-end border-2 text-base">
                         <option>ปกติ</option>
                         <option>ธกส</option>
                     </select>
