@@ -30,7 +30,7 @@ export default function BuyandWin() {
 
     return (
         <div className="flex justify-center">
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-3 text-2xl">
                 <div className="border-x-2">
                     <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="pt-1 w-full">{name[nameIndex]}</button>
                     <select className="pt-0.5 w-full text-end border-2">
