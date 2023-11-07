@@ -49,8 +49,8 @@ export default function BuyandWin() {
                     </select>
                     <br />
                     <p className="pt-0.5 w-full text-end border-2">VIP</p>
-                    <p className="pt-0.5 w-full text-end border-2">ลาวพัฒนา</p>
-                    <p className="pt-0.5 w-full text-end border-2">ลาวสามัคคี</p>
+                    <p className="pt-0.5 w-full text-end border-2">ลาวพัฒ</p>
+                    <p className="pt-0.5 w-full text-end border-2">ลาวสา</p>
                     <p className="pt-0.5 collapse">x</p>
                     <p className="pt-0.5 w-full text-end border-2 font-bold">{resultContent}</p>
                 </div>
