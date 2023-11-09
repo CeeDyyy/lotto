@@ -85,7 +85,7 @@ export default function BuyandWin() {
                     <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="w-full">{name[nameIndex]}</button>
                     <p className="w-full text-center border-x-2 bg-pink-100">ยอดซื้อ</p>
                     <p className="w-full text-center border-x-2 col-span-3 bg-teal-100">ยอดรับ</p>
-                    <p className="w-full text-center border-x-2 bg-green-100">ยอดรับ</p>
+                    <p className="w-full text-center border-x-2 bg-green-100">รวมรับ</p>
                     <button onClick={() => toggleType()} className="w-full">{type[Number(stateType)]}</button>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy1(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin11(e.target.value)} />
