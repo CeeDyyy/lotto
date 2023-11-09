@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react"
 
 export default function BuyandWin() {
+    const today = new Date();
+    const months = ["มค","กพ","มีค","เมย","พค","มิย","กค","สค","กย","ตค","พย","ธค",]
     const name = ["ยาย", "ดา", "อจ.", "นช", "_"]
     const [nameIndex, setNameIndex] = useState(0)
     const [buy1, setBuy1] = useState("");
@@ -71,7 +73,7 @@ export default function BuyandWin() {
     }, [finalResult])
 
     return (
-        <div className="text-2xl">
+        <div className="text-base">
 
             {/* <div className="flex justify-center">
                 <div className="grid grid-cols-3">
@@ -172,11 +174,11 @@ export default function BuyandWin() {
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin62(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin63(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin6(e.target.value)} value={win6} />
-                    <input type="date" placeholder="DD/MM/YY" />
+                    <p className="w-full text-start border-2">{today.getDate()}/{months[today.getMonth()]}</p>
                     <p className="border-x-2 text-center">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)}</p>
                     <p className="border-x-2 text-center col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6)}</p>
                     <p className="w-full text-end border-2 font-bold">{resultContent}</p>
-                    <p className="pt-1 font-bold">{finalResult}</p>
+                    <p className="font-bold">{finalResult}</p>
                 </div>
             </div>
 
