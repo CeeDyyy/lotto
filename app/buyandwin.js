@@ -84,43 +84,44 @@ export default function BuyandWin() {
                 <div className="grid grid-cols-6">
                     <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="w-full">{name[nameIndex]}</button>
                     <p className="w-full text-center border-x-2 bg-pink-100">ยอดซื้อ</p>
-                    <p className="w-full text-center border-x-2 col-span-4 bg-teal-100">ยอดรับ</p>
+                    <p className="w-full text-center border-x-2 col-span-3 bg-teal-100">ยอดรับ</p>
+                    <p className="w-full text-center border-x-2 bg-green-100">ยอดรับ</p>
                     <button onClick={() => toggleType()} className="w-full">{type[Number(stateType)]}</button>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy1(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin11(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin12(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin13(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin1(e.target.value)} value={win1} />
+                    <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin1(e.target.value)} value={win1} />
                     <button onClick={() => toggleSaving()} className="w-full">{saving[Number(stateSaving)]}</button>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy2(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin21(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin22(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin23(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin2(e.target.value)} value={win2} />
+                    <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin2(e.target.value)} value={win2} />
                     <button onClick={() => toggleNormal()} className="w-full">{normal[Number(stateNormal)]}</button>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy3(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin31(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin32(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin33(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin3(e.target.value)} value={win3} />
+                    <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin3(e.target.value)} value={win3} />
                     <p className="w-full text-end border-2">VIP</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy4(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin41(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin42(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin43(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin4(e.target.value)} value={win4} />
+                    <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin4(e.target.value)} value={win4} />
                     <p className="w-full text-end border-2">ลาวพัฒนา</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy5(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin51(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin52(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin53(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin5(e.target.value)} value={win5} />
+                    <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin5(e.target.value)} value={win5} />
                     <p className="w-full text-end border-2">ลาวสามัคคี</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy6(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin61(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin62(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin63(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin6(e.target.value)} value={win6} />
+                    <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin6(e.target.value)} value={win6} />
                     <p className="w-full text-start border-2">{today.getDate()}/{months[today.getMonth()]}</p>
                     <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)}</p>
                     <p className="border-x-2 text-center bg-teal-100 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6)}</p>
