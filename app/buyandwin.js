@@ -1,12 +1,18 @@
 'use client'
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useReducer } from "react"
 
 export default function BuyandWin() {
     const today = new Date();
-    const months = ["มค","กพ","มีค","เมย","พค","มิย","กค","สค","กย","ตค","พย","ธค",]
+    const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
     const name = ["ยาย", "ดา", "อจ.", "นช", "_"]
     const [nameIndex, setNameIndex] = useState(0)
+    const type = ["เฉพาะกิจ", "รัฐบาล"]
+    const [stateType, toggleType] = useReducer(x  => !x, false)
+    const saving = ["พิเศษ", "ออมสิน"]
+    const [stateSaving, toggleSaving] = useReducer(x => !x, false)
+    const normal = ["ปกติ", "ธกส"]
+    const [stateNormal, toggleNormal] = useReducer(x => !x, false)
     const [buy1, setBuy1] = useState("");
     const [buy2, setBuy2] = useState("");
     const [buy3, setBuy3] = useState("");
@@ -74,83 +80,24 @@ export default function BuyandWin() {
 
     return (
         <div className="text-base">
-
-            {/* <div className="flex justify-center">
-                <div className="grid grid-cols-3">
-                    <div className="border-x-2">
-                        <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="pt-1 w-full">{name[nameIndex]}</button>
-                        <select className="pt-0.5 w-full text-end border-2 text-base">
-                            <option>เฉพาะกิจ</option>
-                            <option>รัฐบาล</option>
-                        </select>
-                        <br />
-                        <select className="pt-0.5 w-full text-end border-2 text-base">
-                            <option>พิเศษ</option>
-                            <option>ออมสิน</option>
-                        </select>
-                        <br />
-                        <select className="pt-0.5 w-full text-end border-2 text-base">
-                            <option>ปกติ</option>
-                            <option>ธกส</option>
-                        </select>
-                        <br />
-                        <p className="pt-0.5 w-full text-end border-2">VIP</p>
-                        <p className="pt-0.5 w-full text-end border-2">ลาวพัฒ</p>
-                        <p className="pt-0.5 w-full text-end border-2">ลาวสา</p>
-                        <input type="date" placeholder="DD/MM/YY" />
-                        <p className="pt-0.5 w-full text-end border-2 font-bold">{resultContent}</p>
-                    </div>
-                    <div className="border-x-2">
-                        <p className="pt-1 w-full text-center">ยอดซื้อ</p>
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy1(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy2(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy3(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy4(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy5(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy6(e.target.value)} />
-                        <p className="pt-1">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)}</p>
-                        <p className="pt-1 font-bold">{finalResult}</p>
-                    </div>
-                    <div className="border-x-2">
-                        <p className="pt-1 w-full text-center">ยอดรับ</p>
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin1(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin2(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin3(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin4(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin5(e.target.value)} />
-                        <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin6(e.target.value)} />
-                        <p className="pt-1">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6)}</p>
-                    </div>
-                </div>
-            </div> */}
-
             <div className="flex justify-center">
                 <div className="grid grid-cols-6">
                     <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="w-full">{name[nameIndex]}</button>
                     <p className="w-full text-center border-x-2">ยอดซื้อ</p>
                     <p className="w-full text-center border-x-2 col-span-4">ยอดรับ</p>
-                    <select className="w-full text-end border-2">
-                        <option>เฉพาะกิจ</option>
-                        <option>รัฐบาล</option>
-                    </select>
+                    <button onClick={() => toggleType()} className="w-full">{type[Number(stateType)]}</button>
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy1(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin11(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin12(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin13(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin1(e.target.value)} value={win1} />
-                    <select className="w-full text-end border-2">
-                        <option>พิเศษ</option>
-                        <option>ออมสิน</option>
-                    </select>
+                    <button onClick={() => toggleSaving()} className="w-full">{saving[Number(stateSaving)]}</button>
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy2(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin21(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin22(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin23(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin2(e.target.value)} value={win2} />
-                    <select className="w-full text-end border-2">
-                        <option>ปกติ</option>
-                        <option>ธกส</option>
-                    </select>
+                    <button onClick={() => toggleNormal()} className="w-full">{normal[Number(stateNormal)]}</button>
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setBuy3(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin31(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setWin32(e.target.value)} />
@@ -181,7 +128,6 @@ export default function BuyandWin() {
                     <p className="font-bold">{finalResult}</p>
                 </div>
             </div>
-
         </div>
     )
 }
