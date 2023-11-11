@@ -40,7 +40,7 @@ export default function Combination() {
                         onKeyDown={(e) => handleKeyDown(index, e.key)}
                         onFocus={(e) => e.target.select()}
                         placeholder="X"
-                        className={`${index === 0 && 'order-1 border-l-2 border-t-2'} ${index === 1 && 'order-2 border-x-2 border-t-2'} ${index === 2 && 'order-3 border-r-2 border-t-2'} ${index === 3 && 'order-4 border-l-2 border-y-2'} ${index === 4 && 'order-5 border-x-2 border-y-2'} ${index === 5 && 'order-6 border-r-2 border-y-2'} text-3xl bg-yellow-100 placeholder-gray-400 text-center font-normal w-full py-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-gray-400`}
+                        className={`${index === 0 && 'order-1 border-l-2 border-t-2'} ${index === 1 && 'order-2 border-x-2 border-t-2'} ${index === 2 && 'order-3 border-r-2 border-t-2'} ${index === 3 && 'order-6 border-r-2 border-y-2'} ${index === 4 && 'order-5 border-x-2 border-y-2'} ${index === 5 && 'order-4 border-l-2 border-y-2'} text-3xl bg-yellow-100 placeholder-gray-400 text-center font-normal w-full py-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-gray-400`}
                         key={index}
                     />
                 )}
@@ -85,8 +85,8 @@ export default function Combination() {
                         <p>{code[4]}{code[5]}{code[2]}</p>
                         <p>{code[5]}{code[0]}{code[2]}</p>
                         <p>{code[5]}{code[0]}{code[3]}</p>
-                        <p>{code[5]}{code[1]}{code[3]}</p>
                         <p>{code[2]}{code[4]}{code[0]}</p>
+                        <p>{code[3]}{code[1]}{code[5]}</p>
                         <input type="number" className="w-14 ring-2" />
                         <input type="number" className="w-14 ring-2" />
                     </div>
