@@ -7,10 +7,51 @@ export default function UpDown() {
     const [currentName, setCurrentName] = useState("ยาย");
     const [mode, setMode] = useState("เฉพาะกิจ");
 
+    useEffect(() => {
+        const saved = localStorage.getItem("currentpage2");
+        const jsonsaved = (JSON.parse(saved));
+        setCurrentName(jsonsaved?.currentname);
+        setMode(jsonsaved?.currentmode);
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("currentpage2", JSON.stringify({
+            "currentname": currentName,
+            "currentmode": mode,
+        }));
+    }, [currentName, mode])
+
+    const [showOptions, setShowOptions] = useState(false);
+
+    const handleOptionClick = (option) => {
+        setCurrentName(option);
+        setShowOptions(false);
+    };
+
     return (
         <div className="gird justify-items-center text-2xl">
             <div className="grid grid-cols-2 divide-x-2 divide-black">
-                <Autocomplete options={options} onChange={(value) => setCurrentName(value)} defaultValue={currentName} />
+                <div>
+                    <input
+                        type="text"
+                        value={currentName}
+                        className="w-full text-center"
+                        onClick={(e) => { setShowOptions(!showOptions); e.target.select(); }}
+                        onChange={(e) => setCurrentName(e.target.value)}
+                    />
+                    {showOptions &&
+                        <>
+                            <div className="fixed top-0 left-0 h-screen w-screen" onClick={() => setShowOptions(false)} />
+                            <div className="absolute py-1 px-4 bg-white">
+                                {options.map((option) => (
+                                    <div key={option} onClick={() => handleOptionClick(option)}>
+                                        {option}
+                                    </div>
+                                ))}
+                            </div>
+                        </>
+                    }
+                </div>
                 <select onChange={(e) => { setMode(e.target.value); }} className="w-full text-center">
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
@@ -187,51 +228,6 @@ function OneUpDown({ currentName, side, mode }) {
                 </div>
                 <p className="pt-1 font-black">{Number(up1) + Number(up2) + Number(up3) + Number(up4) + Number(up5) + Number(up6) + Number(up7) + Number(up8) + Number(up9) + Number(up10) + Number(down1) + Number(down2) + Number(down3) + Number(down4) + Number(down5) + Number(down6) + Number(down7) + Number(down8) + Number(down9) + Number(down10)}</p>
             </div>
-        </div>
-    )
-}
-
-const Autocomplete = ({ options, onChange, defaultValue }) => {
-    const [inputValue, setInputValue] = useState(defaultValue || '');
-    const [filteredOptions, setFilteredOptions] = useState([]);
-
-    const handleInputChange = (e) => {
-        const inputValue = e.target.value;
-        setInputValue(inputValue);
-
-        // Filter options based on the input value
-        const filtered = options.filter(option =>
-            option.toLowerCase().includes(inputValue.toLowerCase())
-        );
-
-        setFilteredOptions(filtered);
-
-        // Notify the parent component about the input change
-        onChange(inputValue);
-    };
-
-    const handleOptionClick = (selectedOption) => {
-        setInputValue(selectedOption);
-        setFilteredOptions([]);
-        onChange(selectedOption); // Notify the parent component about the selection
-    };
-
-    return (
-        <div className="relative">
-            <input
-                type="text"
-                value={inputValue}
-                onChange={handleInputChange}
-                className="w-full text-center"
-                onClick={(e) => e.target.select()}
-            />
-            <ul className="absolute py-1 px-4 bg-white">
-                {filteredOptions.map((option, index) => (
-                    <li key={index} onClick={() => handleOptionClick(option)}>
-                        {option}
-                    </li>
-                ))}
-            </ul>
         </div>
     );
 };
