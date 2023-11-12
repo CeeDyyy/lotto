@@ -217,7 +217,7 @@ const Autocomplete = ({ options, onChange, defaultValue }) => {
     };
 
     return (
-        <div>
+        <div className="relative">
             <input
                 type="text"
                 value={inputValue}
@@ -225,7 +225,7 @@ const Autocomplete = ({ options, onChange, defaultValue }) => {
                 className="w-full text-center"
                 onClick={(e) => e.target.select()}
             />
-            <ul>
+            <ul className="absolute py-1 px-4 bg-white">
                 {filteredOptions.map((option, index) => (
                     <li key={index} onClick={() => handleOptionClick(option)}>
                         {option}
