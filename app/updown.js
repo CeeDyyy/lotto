@@ -53,15 +53,16 @@ function OneUpDown({ side }) {
         setCurrentName(name[nameIndex])
     },[nameIndex])
 
+    const [fetched, setFetched] = useState(false);
+
     useEffect(() => {
         const saved = localStorage.getItem(name[nameIndex] + "2" + side);
         setData(JSON.parse(saved));
-        console.log(name[nameIndex] + "2" + side)
-        console.log(saved)
+        setFetched(true)
     }, [currentName])
 
     useEffect(() => {
-        localStorage.setItem(name[nameIndex] + "2" + side, JSON.stringify({
+        fetched && localStorage.setItem(name[nameIndex] + "2" + side, JSON.stringify({
             "info1": info1,
             "info2": info2,
             "info3": info3,
