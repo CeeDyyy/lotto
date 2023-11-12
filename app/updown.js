@@ -3,21 +3,28 @@
 import React, { useState, useEffect } from "react"
 
 export default function UpDown() {
+    const [selectedName, setSelectedName] = useState("");
+    const [currentName, setCurrentName] = useState("");
 
     return (
-        <div className="flex justify-center">
-            <div className="flex text-2xl divide-x-2 divide-black">
-                <OneUpDown side="L" />
-                <OneUpDown side="R" />
+        <div className="gird justify-items-center text-2xl">
+            <select onChange={(e) => { setSelectedName(e.target.value); setCurrentName(e.target.value); }} className="w-full text-center">
+                <option value="ยาย">ยาย</option>
+                <option value="ดา">ดา</option>
+                <option value="อจ.">อจ.</option>
+                <option value="นช">นช</option>
+                <option value="_">_</option>
+            </select>
+            {selectedName === "_" && <input defaultValue={selectedName} onChange={(e) => setCurrentName(e.target.value)} onClick={(e) => e.target.select()} className="w-full text-center" />}
+            <div className="flex divide-x-2 divide-black">
+                <OneUpDown currentName={currentName} side="L" />
+                <OneUpDown currentName={currentName} side="R" />
             </div>
         </div>
     )
 }
 
-function OneUpDown({ side }) {
-    const name = ["ยาย", "ดา", "อจ.", "นช", "_"]
-    const [nameIndex, setNameIndex] = useState(0)
-    const [currentName, setCurrentName] = useState("")
+function OneUpDown({ currentName, side }) {
     const [info1, setInfo1] = useState("");
     const [info2, setInfo2] = useState("");
     const [info3, setInfo3] = useState("");
@@ -49,20 +56,16 @@ function OneUpDown({ side }) {
     const [down9, setDown9] = useState("");
     const [down10, setDown10] = useState("");
 
-    useEffect(()=>{
-        setCurrentName(name[nameIndex])
-    },[nameIndex])
-
     const [fetched, setFetched] = useState(false);
 
     useEffect(() => {
-        const saved = localStorage.getItem(name[nameIndex] + "2" + side);
+        const saved = localStorage.getItem(currentName + "2" + side);
         setData(JSON.parse(saved));
         setFetched(true)
     }, [currentName])
 
     useEffect(() => {
-        fetched && localStorage.setItem(name[nameIndex] + "2" + side, JSON.stringify({
+        fetched && localStorage.setItem(currentName + "2" + side, JSON.stringify({
             "info1": info1,
             "info2": info2,
             "info3": info3,
@@ -97,7 +100,6 @@ function OneUpDown({ side }) {
     }, [info1, info2, info3, info4, info5, info6, info7, info8, info9, info10, up1, up2, up3, up4, up5, up6, up7, up8, up9, up10, down1, down2, down3, down4, down5, down6, down7, down8, down9, down10])
 
     function setData(saved) {
-        console.log(saved)
         setInfo1(saved?.info1 || "");
         setInfo2(saved?.info2 || "");
         setInfo3(saved?.info3 || "");
@@ -133,11 +135,7 @@ function OneUpDown({ side }) {
     return (
         <div className="grid grid-cols-3">
             <div className="border-x-2">
-                {side === "R" ?
-                    <input type="text" className="w-full text-end border-2" />
-                    :
-                    <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="pt-1 w-full">{currentName}</button>
-                }
+                <p className="pt-1 collapse">x</p>
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info1} onChange={(e) => setInfo1(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info2} onChange={(e) => setInfo2(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info3} onChange={(e) => setInfo3(e.target.value)} />
