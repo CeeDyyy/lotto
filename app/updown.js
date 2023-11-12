@@ -38,6 +38,29 @@ function OneUpDown({ isTyping }) {
     const [down9, setDown9] = useState("");
     const [down10, setDown10] = useState("");
 
+    function clean() {
+        setUp1("");
+        setUp2("");
+        setUp3("");
+        setUp4("");
+        setUp5("");
+        setUp6("");
+        setUp7("");
+        setUp8("");
+        setUp9("");
+        setUp10("");
+        setDown1("");
+        setDown2("");
+        setDown3("");
+        setDown4("");
+        setDown5("");
+        setDown6("");
+        setDown7("");
+        setDown8("");
+        setDown9("");
+        setDown10("");
+    }
+
     return (
         <div className="grid grid-cols-3">
             <div className="border-x-2">
@@ -56,7 +79,7 @@ function OneUpDown({ isTyping }) {
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <p className="text-end collapse">x</p>
+                <p className="text-center" onClick={() => clean()}>ล้าง</p>
                 <p className="pt-2 text-end font-black">รวม</p>
             </div>
             <div className="col-span-2 grid grid-cols-2">
