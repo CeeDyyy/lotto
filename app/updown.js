@@ -4,27 +4,41 @@ import React, { useState, useEffect } from "react"
 
 export default function UpDown() {
     const [selectedName, setSelectedName] = useState("");
-    const [currentName, setCurrentName] = useState("");
+    const [currentName, setCurrentName] = useState("ยาย");
+    const [mode, setMode] = useState("เฉพาะกิจ");
 
     return (
         <div className="gird justify-items-center text-2xl">
-            <select onChange={(e) => { setSelectedName(e.target.value); setCurrentName(e.target.value); }} className="w-full text-center">
-                <option value="ยาย">ยาย</option>
-                <option value="ดา">ดา</option>
-                <option value="อจ.">อจ.</option>
-                <option value="นช">นช</option>
-                <option value="_">_</option>
-            </select>
+            <div className="grid grid-cols-2">
+                <select onChange={(e) => { setSelectedName(e.target.value); setCurrentName(e.target.value); }} className="w-full text-center">
+                    <option value="ยาย">ยาย</option>
+                    <option value="ดา">ดา</option>
+                    <option value="อจ.">อจ.</option>
+                    <option value="นช">นช</option>
+                    <option value="_">_</option>
+                </select>
+                <select onChange={(e) => { setMode(e.target.value); }} className="w-full text-center">
+                    <option value="เฉพาะกิจ">เฉพาะกิจ</option>
+                    <option value="พิเศษ">พิเศษ</option>
+                    <option value="ปกติ">ปกติ</option>
+                    <option value="VIP">VIP</option>
+                    <option value="ลาวพัฒนา">ลาวพัฒนา</option>
+                    <option value="ลาวสามัคคี">ลาวสามัคคี</option>
+                    <option value="รัฐบาล">รัฐบาล</option>
+                    <option value="ออมสิน">ออมสิน</option>
+                    <option value="ธกส">ธกส</option>
+                </select>
+            </div>
             {selectedName === "_" && <input defaultValue={selectedName} onChange={(e) => setCurrentName(e.target.value)} onClick={(e) => e.target.select()} className="w-full text-center" />}
             <div className="flex divide-x-2 divide-black">
-                <OneUpDown currentName={currentName} side="L" />
-                <OneUpDown currentName={currentName} side="R" />
+                <OneUpDown currentName={currentName} side="L" mode={mode} />
+                <OneUpDown currentName={currentName} side="R" mode={mode} />
             </div>
         </div>
     )
 }
 
-function OneUpDown({ currentName, side }) {
+function OneUpDown({ currentName, side, mode }) {
     const [info1, setInfo1] = useState("");
     const [info2, setInfo2] = useState("");
     const [info3, setInfo3] = useState("");
@@ -59,13 +73,13 @@ function OneUpDown({ currentName, side }) {
     const [fetched, setFetched] = useState(false);
 
     useEffect(() => {
-        const saved = localStorage.getItem(currentName + "2" + side);
+        const saved = localStorage.getItem(currentName + "2" + side + mode);
         setData(JSON.parse(saved));
         setFetched(true)
-    }, [currentName])
+    }, [currentName, mode])
 
     useEffect(() => {
-        fetched && localStorage.setItem(currentName + "2" + side, JSON.stringify({
+        fetched && localStorage.setItem(currentName + "2" + side + mode, JSON.stringify({
             "info1": info1,
             "info2": info2,
             "info3": info3,
@@ -135,7 +149,7 @@ function OneUpDown({ currentName, side }) {
     return (
         <div className="grid grid-cols-3">
             <div className="border-x-2">
-                <p className="collapse">x</p>
+                <p>{mode}</p>
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info1} onChange={(e) => setInfo1(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info2} onChange={(e) => setInfo2(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info3} onChange={(e) => setInfo3(e.target.value)} />
