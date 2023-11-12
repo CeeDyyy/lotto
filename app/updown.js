@@ -135,7 +135,7 @@ function OneUpDown({ currentName, side }) {
     return (
         <div className="grid grid-cols-3">
             <div className="border-x-2">
-                <p className="pt-1 collapse">x</p>
+                <p className="collapse">x</p>
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info1} onChange={(e) => setInfo1(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info2} onChange={(e) => setInfo2(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info3} onChange={(e) => setInfo3(e.target.value)} />
@@ -151,7 +151,7 @@ function OneUpDown({ currentName, side }) {
             </div>
             <div className="col-span-2 grid grid-cols-2">
                 <div className="border-x-2">
-                    <p className="text-center pt-1">บ</p>
+                    <p className="text-center">บ</p>
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up1} onChange={(e) => setUp1(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up2} onChange={(e) => setUp2(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up3} onChange={(e) => setUp3(e.target.value)} />
@@ -165,7 +165,7 @@ function OneUpDown({ currentName, side }) {
                     <p className="pt-1">{Number(up1) + Number(up2) + Number(up3) + Number(up4) + Number(up5) + Number(up6) + Number(up7) + Number(up8) + Number(up9) + Number(up10)}</p>
                 </div>
                 <div className="border-x-2">
-                    <p className="text-center pt-1">ล</p>
+                    <p className="text-center">ล</p>
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down1} onChange={(e) => setDown1(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down2} onChange={(e) => setDown2(e.target.value)} />
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down3} onChange={(e) => setDown3(e.target.value)} />
