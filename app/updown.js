@@ -223,6 +223,7 @@ const Autocomplete = ({ options, onChange, defaultValue }) => {
                 value={inputValue}
                 onChange={handleInputChange}
                 className="w-full text-center"
+                onClick={(e) => e.target.select()}
             />
             <ul>
                 {filteredOptions.map((option, index) => (
