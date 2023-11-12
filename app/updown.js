@@ -3,21 +3,14 @@
 import React, { useState, useEffect } from "react"
 
 export default function UpDown() {
-    const [selectedName, setSelectedName] = useState("");
+    const options = ['ยาย', 'ดา', 'อจ.', 'นช'];
     const [currentName, setCurrentName] = useState("ยาย");
     const [mode, setMode] = useState("เฉพาะกิจ");
 
     return (
         <div className="gird justify-items-center text-2xl">
-            <select onChange={(e) => { setSelectedName(e.target.value); setCurrentName(e.target.value); }} className="w-full text-center">
-                <option value="ยาย">ยาย</option>
-                <option value="ดา">ดา</option>
-                <option value="อจ.">อจ.</option>
-                <option value="นช">นช</option>
-                <option value="_">_</option>
-            </select>
-            <div className="grid grid-cols-2">
-                <input defaultValue={selectedName} onChange={(e) => setCurrentName(e.target.value)} onClick={(e) => e.target.select()} className="w-full text-center" />
+            <div className="grid grid-cols-2 divide-x-2 divide-black">
+                <Autocomplete options={options} onChange={(value) => setCurrentName(value)} defaultValue={currentName} />
                 <select onChange={(e) => { setMode(e.target.value); }} className="w-full text-center">
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
@@ -197,3 +190,47 @@ function OneUpDown({ currentName, side, mode }) {
         </div>
     )
 }
+
+const Autocomplete = ({ options, onChange, defaultValue }) => {
+    const [inputValue, setInputValue] = useState(defaultValue || '');
+    const [filteredOptions, setFilteredOptions] = useState([]);
+
+    const handleInputChange = (e) => {
+        const inputValue = e.target.value;
+        setInputValue(inputValue);
+
+        // Filter options based on the input value
+        const filtered = options.filter(option =>
+            option.toLowerCase().includes(inputValue.toLowerCase())
+        );
+
+        setFilteredOptions(filtered);
+
+        // Notify the parent component about the input change
+        onChange(inputValue);
+    };
+
+    const handleOptionClick = (selectedOption) => {
+        setInputValue(selectedOption);
+        setFilteredOptions([]);
+        onChange(selectedOption); // Notify the parent component about the selection
+    };
+
+    return (
+        <div>
+            <input
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+                className="w-full text-center"
+            />
+            <ul>
+                {filteredOptions.map((option, index) => (
+                    <li key={index} onClick={() => handleOptionClick(option)}>
+                        {option}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
