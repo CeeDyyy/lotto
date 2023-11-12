@@ -9,14 +9,15 @@ export default function UpDown() {
 
     return (
         <div className="gird justify-items-center text-2xl">
+            <select onChange={(e) => { setSelectedName(e.target.value); setCurrentName(e.target.value); }} className="w-full text-center">
+                <option value="ยาย">ยาย</option>
+                <option value="ดา">ดา</option>
+                <option value="อจ.">อจ.</option>
+                <option value="นช">นช</option>
+                <option value="_">_</option>
+            </select>
             <div className="grid grid-cols-2">
-                <select onChange={(e) => { setSelectedName(e.target.value); setCurrentName(e.target.value); }} className="w-full text-center">
-                    <option value="ยาย">ยาย</option>
-                    <option value="ดา">ดา</option>
-                    <option value="อจ.">อจ.</option>
-                    <option value="นช">นช</option>
-                    <option value="_">_</option>
-                </select>
+                <input defaultValue={selectedName} onChange={(e) => setCurrentName(e.target.value)} onClick={(e) => e.target.select()} className="w-full text-center" />
                 <select onChange={(e) => { setMode(e.target.value); }} className="w-full text-center">
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
@@ -29,7 +30,6 @@ export default function UpDown() {
                     <option value="ธกส">ธกส</option>
                 </select>
             </div>
-            {selectedName === "_" && <input defaultValue={selectedName} onChange={(e) => setCurrentName(e.target.value)} onClick={(e) => e.target.select()} className="w-full text-center" />}
             <div className="flex divide-x-2 divide-black">
                 <OneUpDown currentName={currentName} side="L" mode={mode} />
                 <OneUpDown currentName={currentName} side="R" mode={mode} />
@@ -149,7 +149,7 @@ function OneUpDown({ currentName, side, mode }) {
     return (
         <div className="grid grid-cols-3">
             <div className="border-x-2">
-                <p>{mode}</p>
+                <p className="collapse">x</p>
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info1} onChange={(e) => setInfo1(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info2} onChange={(e) => setInfo2(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info3} onChange={(e) => setInfo3(e.target.value)} />
