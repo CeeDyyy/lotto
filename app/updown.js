@@ -1,22 +1,33 @@
 'use client'
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 export default function UpDown() {
 
     return (
         <div className="flex justify-center">
             <div className="flex text-2xl divide-x-2 divide-black">
-                <OneUpDown isTyping={false} />
-                <OneUpDown isTyping={true} />
+                <OneUpDown side="L" />
+                <OneUpDown side="R" />
             </div>
         </div>
     )
 }
 
-function OneUpDown({ isTyping }) {
+function OneUpDown({ side }) {
     const name = ["ยาย", "ดา", "อจ.", "นช", "_"]
     const [nameIndex, setNameIndex] = useState(0)
+    const [currentName, setCurrentName] = useState("")
+    const [info1, setInfo1] = useState("");
+    const [info2, setInfo2] = useState("");
+    const [info3, setInfo3] = useState("");
+    const [info4, setInfo4] = useState("");
+    const [info5, setInfo5] = useState("");
+    const [info6, setInfo6] = useState("");
+    const [info7, setInfo7] = useState("");
+    const [info8, setInfo8] = useState("");
+    const [info9, setInfo9] = useState("");
+    const [info10, setInfo10] = useState("");
     const [up1, setUp1] = useState("");
     const [up2, setUp2] = useState("");
     const [up3, setUp3] = useState("");
@@ -38,77 +49,134 @@ function OneUpDown({ isTyping }) {
     const [down9, setDown9] = useState("");
     const [down10, setDown10] = useState("");
 
-    function clean() {
-        setUp1("");
-        setUp2("");
-        setUp3("");
-        setUp4("");
-        setUp5("");
-        setUp6("");
-        setUp7("");
-        setUp8("");
-        setUp9("");
-        setUp10("");
-        setDown1("");
-        setDown2("");
-        setDown3("");
-        setDown4("");
-        setDown5("");
-        setDown6("");
-        setDown7("");
-        setDown8("");
-        setDown9("");
-        setDown10("");
+    useEffect(()=>{
+        setCurrentName(name[nameIndex])
+    },[nameIndex])
+
+    useEffect(() => {
+        const saved = localStorage.getItem(name[nameIndex] + "2" + side);
+        setData(JSON.parse(saved));
+        console.log(name[nameIndex] + "2" + side)
+        console.log(saved)
+    }, [currentName])
+
+    useEffect(() => {
+        localStorage.setItem(name[nameIndex] + "2" + side, JSON.stringify({
+            "info1": info1,
+            "info2": info2,
+            "info3": info3,
+            "info4": info4,
+            "info5": info5,
+            "info6": info6,
+            "info7": info7,
+            "info8": info8,
+            "info9": info9,
+            "info10": info10,
+            "up1": up1,
+            "up2": up2,
+            "up3": up3,
+            "up4": up4,
+            "up5": up5,
+            "up6": up6,
+            "up7": up7,
+            "up8": up8,
+            "up9": up9,
+            "up10": up10,
+            "down1": down1,
+            "down2": down2,
+            "down3": down3,
+            "down4": down4,
+            "down5": down5,
+            "down6": down6,
+            "down7": down7,
+            "down8": down8,
+            "down9": down9,
+            "down10": down10
+        }));
+    }, [info1, info2, info3, info4, info5, info6, info7, info8, info9, info10, up1, up2, up3, up4, up5, up6, up7, up8, up9, up10, down1, down2, down3, down4, down5, down6, down7, down8, down9, down10])
+
+    function setData(saved) {
+        console.log(saved)
+        setInfo1(saved?.info1 || "");
+        setInfo2(saved?.info2 || "");
+        setInfo3(saved?.info3 || "");
+        setInfo4(saved?.info4 || "");
+        setInfo5(saved?.info5 || "");
+        setInfo6(saved?.info6 || "");
+        setInfo7(saved?.info7 || "");
+        setInfo8(saved?.info8 || "");
+        setInfo9(saved?.info9 || "");
+        setInfo10(saved?.info10 || "");
+        setUp1(saved?.up1 || "");
+        setUp2(saved?.up2 || "");
+        setUp3(saved?.up3 || "");
+        setUp4(saved?.up4 || "");
+        setUp5(saved?.up5 || "");
+        setUp6(saved?.up6 || "");
+        setUp7(saved?.up7 || "");
+        setUp8(saved?.up8 || "");
+        setUp9(saved?.up9 || "");
+        setUp10(saved?.up10 || "");
+        setDown1(saved?.down1 || "");
+        setDown2(saved?.down2 || "");
+        setDown3(saved?.down3 || "");
+        setDown4(saved?.down4 || "");
+        setDown5(saved?.down5 || "");
+        setDown6(saved?.down6 || "");
+        setDown7(saved?.down7 || "");
+        setDown8(saved?.down8 || "");
+        setDown9(saved?.down9 || "");
+        setDown10(saved?.down10 || "");
     }
 
     return (
         <div className="grid grid-cols-3">
             <div className="border-x-2">
-                {isTyping ?
+                {side === "R" ?
                     <input type="text" className="w-full text-end border-2" />
                     :
-                    <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="pt-1 w-full">{name[nameIndex]}</button>
+                    <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="pt-1 w-full">{currentName}</button>
                 }
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} />
-                <p className="text-center" onClick={() => clean()}>ล้าง</p>
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info1} onChange={(e) => setInfo1(e.target.value)} />
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info2} onChange={(e) => setInfo2(e.target.value)} />
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info3} onChange={(e) => setInfo3(e.target.value)} />
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info4} onChange={(e) => setInfo4(e.target.value)} />
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info5} onChange={(e) => setInfo5(e.target.value)} />
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info6} onChange={(e) => setInfo6(e.target.value)} />
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info7} onChange={(e) => setInfo7(e.target.value)} />
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info8} onChange={(e) => setInfo8(e.target.value)} />
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info9} onChange={(e) => setInfo9(e.target.value)} />
+                <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info10} onChange={(e) => setInfo10(e.target.value)} />
+                <p className="text-center" onClick={() => setData("")}>ล้าง</p>
                 <p className="pt-2 text-end font-black">รวม</p>
             </div>
             <div className="col-span-2 grid grid-cols-2">
                 <div className="border-x-2">
                     <p className="text-center pt-1">บ</p>
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp1(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp2(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp3(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp4(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp5(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp6(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp7(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp8(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp9(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setUp10(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up1} onChange={(e) => setUp1(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up2} onChange={(e) => setUp2(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up3} onChange={(e) => setUp3(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up4} onChange={(e) => setUp4(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up5} onChange={(e) => setUp5(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up6} onChange={(e) => setUp6(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up7} onChange={(e) => setUp7(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up8} onChange={(e) => setUp8(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up9} onChange={(e) => setUp9(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up10} onChange={(e) => setUp10(e.target.value)} />
                     <p className="pt-1">{Number(up1) + Number(up2) + Number(up3) + Number(up4) + Number(up5) + Number(up6) + Number(up7) + Number(up8) + Number(up9) + Number(up10)}</p>
                 </div>
                 <div className="border-x-2">
                     <p className="text-center pt-1">ล</p>
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown1(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown2(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown3(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown4(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown5(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown6(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown7(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown8(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown9(e.target.value)} />
-                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} onChange={(e) => setDown10(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down1} onChange={(e) => setDown1(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down2} onChange={(e) => setDown2(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down3} onChange={(e) => setDown3(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down4} onChange={(e) => setDown4(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down5} onChange={(e) => setDown5(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down6} onChange={(e) => setDown6(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down7} onChange={(e) => setDown7(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down8} onChange={(e) => setDown8(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down9} onChange={(e) => setDown9(e.target.value)} />
+                    <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down10} onChange={(e) => setDown10(e.target.value)} />
                     <p className="pt-1">{Number(down1) + Number(down2) + Number(down3) + Number(down4) + Number(down5) + Number(down6) + Number(down7) + Number(down8) + Number(down9) + Number(down10)}</p>
                 </div>
                 <p className="pt-1 font-black">{Number(up1) + Number(up2) + Number(up3) + Number(up4) + Number(up5) + Number(up6) + Number(up7) + Number(up8) + Number(up9) + Number(up10) + Number(down1) + Number(down2) + Number(down3) + Number(down4) + Number(down5) + Number(down6) + Number(down7) + Number(down8) + Number(down9) + Number(down10)}</p>
