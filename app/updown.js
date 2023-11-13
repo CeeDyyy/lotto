@@ -7,6 +7,16 @@ export default function UpDown() {
     const [currentName, setCurrentName] = useState("ยาย");
     const [mode, setMode] = useState("เฉพาะกิจ");
 
+    const [bgColor, setBgColor] = useState("");
+    useEffect(() => {
+        setBgColor(({
+            'ยาย': "bg-pink-200",
+            'ดา': "bg-green-200",
+            'อจ.': "bg-yellow-200",
+            'นช': "bg-blue-200"
+        })[currentName] || "bg-white")
+    }, [currentName])
+
     useEffect(() => {
         const saved = localStorage.getItem("currentpage2");
         const jsonsaved = (JSON.parse(saved));
@@ -29,7 +39,7 @@ export default function UpDown() {
     };
 
     return (
-        <div className="gird justify-items-center text-2xl">
+        <div className={`gird justify-items-center text-2xl ${bgColor}`}>
             <div className="grid grid-cols-2 divide-x-2 divide-black">
                 <div>
                     <input
