@@ -62,7 +62,7 @@ export default function UpDown() {
                         </>
                     }
                 </div>
-                <select onChange={(e) => { setMode(e.target.value); }} className="w-full text-center">
+                <select onChange={(e) => { setMode(e.target.value); }} className={`w-full text-center ${bgColor}`}>
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
                     <option value="ปกติ">ปกติ</option>
@@ -75,14 +75,14 @@ export default function UpDown() {
                 </select>
             </div>
             <div className="flex divide-x-2 divide-black">
-                <OneUpDown currentName={currentName} side="L" mode={mode} />
-                <OneUpDown currentName={currentName} side="R" mode={mode} />
+                <OneUpDown currentName={currentName} side="L" mode={mode} bgColor={bgColor} />
+                <OneUpDown currentName={currentName} side="R" mode={mode} bgColor={bgColor} />
             </div>
         </div>
     )
 }
 
-function OneUpDown({ currentName, side, mode }) {
+function OneUpDown({ currentName, side, mode, bgColor }) {
     const today = new Date();
     const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
     const [info1, setInfo1] = useState("");
@@ -238,7 +238,7 @@ function OneUpDown({ currentName, side, mode }) {
                     <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down10} onChange={(e) => setDown10(e.target.value)} />
                     <p className="pt-1">{Number(down1) + Number(down2) + Number(down3) + Number(down4) + Number(down5) + Number(down6) + Number(down7) + Number(down8) + Number(down9) + Number(down10)}</p>
                 </div>
-                <p className="pt-1 font-black">{Number(up1) + Number(up2) + Number(up3) + Number(up4) + Number(up5) + Number(up6) + Number(up7) + Number(up8) + Number(up9) + Number(up10) + Number(down1) + Number(down2) + Number(down3) + Number(down4) + Number(down5) + Number(down6) + Number(down7) + Number(down8) + Number(down9) + Number(down10)}</p>
+                <p className={`pt-1 font-black ${bgColor}`}>{Number(up1) + Number(up2) + Number(up3) + Number(up4) + Number(up5) + Number(up6) + Number(up7) + Number(up8) + Number(up9) + Number(up10) + Number(down1) + Number(down2) + Number(down3) + Number(down4) + Number(down5) + Number(down6) + Number(down7) + Number(down8) + Number(down9) + Number(down10)}</p>
             </div>
         </div>
     );

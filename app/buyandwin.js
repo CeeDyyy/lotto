@@ -136,7 +136,7 @@ export default function BuyandWin() {
                     <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)}</p>
                     <p className="border-x-2 text-center bg-green-200 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6)}</p>
                     <p className="w-full text-end border-2 font-bold">{resultContent}</p>
-                    <p className="font-bold text-lg">{finalResult}</p>
+                    <p className={`font-bold text-lg ${bgColor}`}>{finalResult}</p>
                 </div>
             </div>
         </div>
