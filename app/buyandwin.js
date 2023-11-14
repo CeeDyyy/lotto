@@ -77,12 +77,22 @@ export default function BuyandWin() {
     useEffect(() => {
         setResultContent(finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ")
     }, [finalResult])
+    
+    const [bgColor, setBgColor] = useState("");
+    useEffect(() => {
+        setBgColor(({
+            'ยาย': "bg-pink-200",
+            'ดา': "bg-green-200",
+            'อจ.': "bg-yellow-200",
+            'นช': "bg-blue-200"
+        })[name[nameIndex]] || "bg-white")
+    }, [nameIndex])
 
     return (
         <div className="text-base">
             <div className="flex justify-center">
                 <div className="grid grid-cols-6">
-                    <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className="w-full">{name[nameIndex]}</button>
+                    <button onClick={() => nameIndex < 4 ? setNameIndex(nameIndex + 1) : setNameIndex(0)} className={`w-full ${bgColor}`}>{name[nameIndex]}</button>
                     <p className="w-full text-center border-x-2 bg-pink-100">ยอดซื้อ</p>
                     <p className="w-full text-center border-x-2 col-span-3 bg-teal-100">ยอดรับ</p>
                     <p className="w-full text-center border-x-2 bg-green-200">รวมรับ</p>

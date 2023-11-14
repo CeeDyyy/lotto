@@ -39,13 +39,13 @@ export default function UpDown() {
     };
 
     return (
-        <div className={`gird justify-items-center text-2xl ${bgColor}`}>
+        <div className="gird justify-items-center text-2xl">
             <div className="grid grid-cols-2 divide-x-2 divide-black">
                 <div>
                     <input
                         type="text"
                         value={currentName}
-                        className="w-full text-center"
+                        className={`w-full text-center ${bgColor}`}
                         onClick={(e) => { setShowOptions(!showOptions); e.target.select(); }}
                         onChange={(e) => setCurrentName(e.target.value)}
                     />
@@ -83,6 +83,8 @@ export default function UpDown() {
 }
 
 function OneUpDown({ currentName, side, mode }) {
+    const today = new Date();
+    const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
     const [info1, setInfo1] = useState("");
     const [info2, setInfo2] = useState("");
     const [info3, setInfo3] = useState("");
@@ -193,7 +195,7 @@ function OneUpDown({ currentName, side, mode }) {
     return (
         <div className="grid grid-cols-3">
             <div className="border-x-2">
-                <p className="collapse">x</p>
+                <p className="text-center">{today.getDate() + "/" + months[today.getMonth()]}</p>
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info1} onChange={(e) => setInfo1(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info2} onChange={(e) => setInfo2(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info3} onChange={(e) => setInfo3(e.target.value)} />
@@ -204,7 +206,7 @@ function OneUpDown({ currentName, side, mode }) {
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info8} onChange={(e) => setInfo8(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info9} onChange={(e) => setInfo9(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info10} onChange={(e) => setInfo10(e.target.value)} />
-                <p className="text-center" onClick={() => setData("")}>ล้าง</p>
+                <div className="text-center" onClick={() => setData("")}><p className="collapse">ล้าง</p></div>
                 <p className="pt-2 text-end font-black">รวม</p>
             </div>
             <div className="col-span-2 grid grid-cols-2">
