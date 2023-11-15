@@ -195,7 +195,7 @@ function OneUpDown({ currentName, side, mode, bgColor }) {
     return (
         <div className="grid grid-cols-3">
             <div className="border-x-2">
-                <p className="text-center">{today.getDate() + "/" + months[today.getMonth()]}</p>
+                <p className="text-base py-1 text-center">{today.getDate() + "/" + months[today.getMonth()]}</p>
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info1} onChange={(e) => setInfo1(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info2} onChange={(e) => setInfo2(e.target.value)} />
                 <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info3} onChange={(e) => setInfo3(e.target.value)} />
