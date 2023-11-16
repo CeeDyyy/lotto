@@ -86,7 +86,6 @@ export default function BuyandWin() {
     }, [currentName])
 
     useEffect(() => {
-        console.log(currentName)
         const Type = localStorage.getItem(currentName + "2sum" + type);
         setBuy1(Type || 0);
         const Saving = localStorage.getItem(currentName + "2sum" + saving);
