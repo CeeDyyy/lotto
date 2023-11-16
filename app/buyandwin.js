@@ -224,7 +224,7 @@ export default function BuyandWin() {
                             type="text"
                             value={currentName}
                             className={`w-full text-center ${bgColor}`}
-                            onClick={(e) => setShowOptions(!showOptions)}
+                            onClick={() => setShowOptions(!showOptions)}
                             onChange={(e) => setCurrentName(e.target.value)}
                         />
                         {showOptions &&
