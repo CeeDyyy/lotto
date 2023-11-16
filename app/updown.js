@@ -223,7 +223,7 @@ function OneUpDown({ currentName, side, mode, setSumSide = () => { } }) {
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down4} onChange={(e) => setDown4(e.target.value)} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info5} onChange={(e) => setInfo5(e.target.value)} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up5} onChange={(e) => setUp5(e.target.value)} />
-            <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up5} onChange={(e) => setUp5(e.target.value)} />
+            <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down5} onChange={(e) => setDown5(e.target.value)} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info6} onChange={(e) => setInfo6(e.target.value)} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up6} onChange={(e) => setUp6(e.target.value)} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down6} onChange={(e) => setDown6(e.target.value)} />
