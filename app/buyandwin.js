@@ -41,7 +41,6 @@ export default function BuyandWin() {
     const [win63, setWin63] = useState(0);
     const [win6, setWin6] = useState(0);
     const [finalResult, setFinalResult] = useState(0);
-    const [resultContent, setResultContent] = useState("สุทธิ")
 
     useEffect(() => {
         setWin1(Number(win11) + Number(win12) + Number(win13))
@@ -70,10 +69,6 @@ export default function BuyandWin() {
     useEffect(() => {
         setFinalResult((Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6)) - (Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)))
     }, [buy1, buy2, buy3, buy4, buy5, buy6, win1, win2, win3, win4, win5, win6])
-
-    useEffect(() => {
-        setResultContent(finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ")
-    }, [finalResult])
 
     const [bgColor, setBgColor] = useState("bg-white");
     useEffect(() => {
@@ -185,7 +180,7 @@ export default function BuyandWin() {
                     <p className="w-full text-start border-2">{today.getDate()}/{months[today.getMonth()]}</p>
                     <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6)}</p>
                     <p className="border-x-2 text-center bg-green-200 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6)}</p>
-                    <p className="w-full text-end border-2 font-bold">{resultContent}</p>
+                    <p className="w-full text-end border-2 font-bold">{finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ"}</p>
                     <p className={`font-bold text-lg ${bgColor}`}>{finalResult}</p>
                 </div>
             </div>
