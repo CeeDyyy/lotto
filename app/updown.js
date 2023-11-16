@@ -24,7 +24,6 @@ export default function UpDown() {
         setMode(jsonsaved?.currentmode || "เฉพาะกิจ");
         setFetched(true);
     }, [])
-
     useEffect(() => {
         if (fetched) {
             localStorage.setItem("currentpage2", JSON.stringify({
