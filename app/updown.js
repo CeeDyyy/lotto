@@ -6,7 +6,6 @@ export default function UpDown() {
     const options = ['ยาย', 'ดา', 'อจ.', 'นช'];
     const [currentName, setCurrentName] = useState("ยาย");
     const [mode, setMode] = useState("เฉพาะกิจ");
-
     const [bgColor, setBgColor] = useState("");
     useEffect(() => {
         setBgColor(({
@@ -17,22 +16,25 @@ export default function UpDown() {
         })[currentName] || "bg-white")
     }, [currentName])
 
+    const [fetched, setFetched] = useState(false);
     useEffect(() => {
         const saved = localStorage.getItem("currentpage2");
         const jsonsaved = (JSON.parse(saved));
-        setCurrentName(jsonsaved?.currentname);
-        setMode(jsonsaved?.currentmode);
+        setCurrentName(jsonsaved?.currentname || "ยาย");
+        setMode(jsonsaved?.currentmode || "เฉพาะกิจ");
+        setFetched(true);
     }, [])
 
     useEffect(() => {
-        localStorage.setItem("currentpage2", JSON.stringify({
-            "currentname": currentName,
-            "currentmode": mode,
-        }));
+        if (fetched) {
+            localStorage.setItem("currentpage2", JSON.stringify({
+                "currentname": currentName,
+                "currentmode": mode,
+            }));
+        }
     }, [currentName, mode])
 
     const [showOptions, setShowOptions] = useState(false);
-
     const handleOptionClick = (option) => {
         setCurrentName(option);
         setShowOptions(false);
@@ -40,7 +42,6 @@ export default function UpDown() {
 
     const [sumSideLeft, setSumSideLeft] = useState("");
     const [sumSideRight, setSumSideRight] = useState("");
-
     useEffect(() => {
         localStorage.setItem(currentName + "2sum" + mode, sumSideLeft + sumSideRight);
     }, [sumSideLeft, sumSideRight])
@@ -80,8 +81,8 @@ export default function UpDown() {
                     <option value="ออมสิน">ออมสิน</option>
                     <option value="ธกส">ธกส</option>
                 </select>
-                <OneUpDown currentName={currentName} side="L" mode={mode} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />
-                <OneUpDown currentName={currentName} side="R" mode={mode} bgColor={bgColor} sumSide={sumSideRight} setSumSide={setSumSideRight} />
+                <OneUpDown fetched={fetched} currentName={currentName} side="L" mode={mode} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />
+                <OneUpDown fetched={fetched} currentName={currentName} side="R" mode={mode} bgColor={bgColor} sumSide={sumSideRight} setSumSide={setSumSideRight} />
             </div>
             <div className="w-full flex">
                 <p className="text-end font-black">รวม</p>
@@ -91,7 +92,7 @@ export default function UpDown() {
     )
 }
 
-function OneUpDown({ currentName, side, mode, setSumSide = () => { } }) {
+function OneUpDown({ fetched, currentName, side, mode, setSumSide = () => { } }) {
     const today = new Date();
     const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
     const [info1, setInfo1] = useState("");
@@ -125,12 +126,9 @@ function OneUpDown({ currentName, side, mode, setSumSide = () => { } }) {
     const [down9, setDown9] = useState("");
     const [down10, setDown10] = useState("");
 
-    const [fetched, setFetched] = useState(false);
-
     useEffect(() => {
         const saved = localStorage.getItem(currentName + "2" + side + mode);
         setData(JSON.parse(saved));
-        setFetched(true)
     }, [currentName, mode])
 
     useEffect(() => {
