@@ -11,8 +11,11 @@ export default function BuyandWin() {
     const [saving, setSaving] = useState("พิเศษ")
     const [normal, setNormal] = useState("ปกติ")
     const [buy1, setBuy1] = useState(0);
+    const [buy2, setBuy2] = useState(0);
     const [buy3, setBuy3] = useState(0);
+    const [buy4, setBuy4] = useState(0);
     const [buy5, setBuy5] = useState(0);
+    const [buy6, setBuy6] = useState(0);
     const [buy7, setBuy7] = useState(0);
     const [buy8, setBuy8] = useState(0);
     const [buy9, setBuy9] = useState(0);
@@ -20,25 +23,25 @@ export default function BuyandWin() {
     const [win12, setWin12] = useState(0);
     const [win13, setWin13] = useState(0);
     const [win1, setWin1] = useState(0);
-    const [win21, setWin31] = useState(0);
-    const [win22, setWin32] = useState(0);
-    const [win23, setWin33] = useState(0);
+    const [win31, setWin31] = useState(0);
+    const [win32, setWin32] = useState(0);
+    const [win33, setWin33] = useState(0);
     const [win3, setWin2] = useState(0);
-    const [win31, setWin51] = useState(0);
-    const [win32, setWin52] = useState(0);
-    const [win33, setWin53] = useState(0);
+    const [win51, setWin51] = useState(0);
+    const [win52, setWin52] = useState(0);
+    const [win53, setWin53] = useState(0);
     const [win5, setWin3] = useState(0);
-    const [win41, setWin71] = useState(0);
-    const [win42, setWin72] = useState(0);
-    const [win43, setWin73] = useState(0);
+    const [win71, setWin71] = useState(0);
+    const [win72, setWin72] = useState(0);
+    const [win73, setWin73] = useState(0);
     const [win7, setWin4] = useState(0);
-    const [win51, setWin81] = useState(0);
-    const [win52, setWin82] = useState(0);
-    const [win53, setWin83] = useState(0);
+    const [win81, setWin81] = useState(0);
+    const [win82, setWin82] = useState(0);
+    const [win83, setWin83] = useState(0);
     const [win8, setWin5] = useState(0);
-    const [win61, setWin91] = useState(0);
-    const [win62, setWin92] = useState(0);
-    const [win63, setWin93] = useState(0);
+    const [win91, setWin91] = useState(0);
+    const [win92, setWin92] = useState(0);
+    const [win93, setWin93] = useState(0);
     const [win9, setWin6] = useState(0);
     const [finalResult, setFinalResult] = useState(0);
 
@@ -47,24 +50,24 @@ export default function BuyandWin() {
     }, [win11, win12, win13])
 
     useEffect(() => {
-        setWin2(Number(win21) + Number(win22) + Number(win23))
-    }, [win21, win22, win23])
-
-    useEffect(() => {
-        setWin3(Number(win31) + Number(win32) + Number(win33))
+        setWin2(Number(win31) + Number(win32) + Number(win33))
     }, [win31, win32, win33])
 
     useEffect(() => {
-        setWin4(Number(win41) + Number(win42) + Number(win43))
-    }, [win41, win42, win43])
-
-    useEffect(() => {
-        setWin5(Number(win51) + Number(win52) + Number(win53))
+        setWin3(Number(win51) + Number(win52) + Number(win53))
     }, [win51, win52, win53])
 
     useEffect(() => {
-        setWin6(Number(win61) + Number(win62) + Number(win63))
-    }, [win61, win62, win63])
+        setWin4(Number(win71) + Number(win72) + Number(win73))
+    }, [win71, win72, win73])
+
+    useEffect(() => {
+        setWin5(Number(win81) + Number(win82) + Number(win83))
+    }, [win81, win82, win83])
+
+    useEffect(() => {
+        setWin6(Number(win91) + Number(win92) + Number(win93))
+    }, [win91, win92, win93])
 
     useEffect(() => {
         setFinalResult((Number(win1) + Number(win3) + Number(win5) + Number(win7) + Number(win8) + Number(win9)) - (Number(buy1) + Number(buy3) + Number(buy5) + Number(buy7) + Number(buy8) + Number(buy9)))
