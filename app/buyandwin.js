@@ -4,9 +4,31 @@ import React, { useState, useEffect, useReducer } from "react"
 
 export default function BuyandWin() {
     const options = ['ยาย', 'ดา', 'อจ.', 'นช'];
-    const [currentName, setCurrentName] = useState("ยาย");
     const today = new Date();
     const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
+
+    const [currentName, setCurrentName] = useState("ยาย");
+    const [fetched, setFetched] = useState(false);
+    useEffect(() => {
+        const saved = localStorage.getItem("currentpage3");
+        setCurrentName(saved || "ยาย");
+        setFetched(true);
+    }, [])
+    useEffect(() => {
+        if (fetched) {
+            localStorage.setItem("currentpage3", currentName);
+        }
+    }, [currentName])
+    const [bgColor, setBgColor] = useState("bg-white");
+    useEffect(() => {
+        setBgColor(({
+            'ยาย': "bg-pink-200",
+            'ดา': "bg-green-200",
+            'อจ.': "bg-yellow-200",
+            'นช': "bg-blue-200"
+        })[currentName] || "bg-white")
+    }, [currentName])
+    
     const [type, setType] = useState("เฉพาะกิจ")
     const [saving, setSaving] = useState("พิเศษ")
     const [normal, setNormal] = useState("ปกติ")
@@ -19,6 +41,27 @@ export default function BuyandWin() {
     const [buy7, setBuy7] = useState(0);
     const [buy8, setBuy8] = useState(0);
     const [buy9, setBuy9] = useState(0);
+
+    useEffect(() => {
+        const Particular = localStorage.getItem(currentName + "2sumเฉพาะกิจ");
+        setBuy1(Particular || 0);
+        const Gov = localStorage.getItem(currentName + "2sumรัฐบาล");
+        setBuy2(Gov || 0);
+        const Special = localStorage.getItem(currentName + "2sumพิเศษ");
+        setBuy3(Special || 0);
+        const Saving = localStorage.getItem(currentName + "2sumออมสิน");
+        setBuy4(Saving || 0);
+        const Normal = localStorage.getItem(currentName + "2sumปกติ");
+        setBuy5(Normal || 0);
+        const Agriculture = localStorage.getItem(currentName + "2sumธกส");
+        setBuy6(Agriculture || 0);
+        const vip = localStorage.getItem(currentName + "2sumVIP");
+        setBuy7(vip || 0);
+        const laoevo = localStorage.getItem(currentName + "2sumลาวพัฒนา");
+        setBuy8(laoevo || 0);
+        const laoharmony = localStorage.getItem(currentName + "2sumลาวสามัคคี");
+        setBuy9(laoharmony || 0);
+    }, [currentName])
 
     const [win11, setWin11] = useState(0);
     const [win12, setWin12] = useState(0);
@@ -96,49 +139,6 @@ export default function BuyandWin() {
     useEffect(() => {
         setFinalResult((Number(win1) + Number(win3) + Number(win5) + Number(win7) + Number(win8) + Number(win9)) - (Number(buy1) + Number(buy3) + Number(buy5) + Number(buy7) + Number(buy8) + Number(buy9)))
     }, [buy1, buy3, buy5, buy7, buy8, buy9, win1, win3, win5, win7, win8, win9])
-
-    const [bgColor, setBgColor] = useState("bg-white");
-    useEffect(() => {
-        setBgColor(({
-            'ยาย': "bg-pink-200",
-            'ดา': "bg-green-200",
-            'อจ.': "bg-yellow-200",
-            'นช': "bg-blue-200"
-        })[currentName] || "bg-white")
-    }, [currentName])
-
-    useEffect(() => {
-        const Particular = localStorage.getItem(currentName + "2sumเฉพาะกิจ");
-        setBuy1(Particular || 0);
-        const Gov = localStorage.getItem(currentName + "2sumรัฐบาล");
-        setBuy2(Gov || 0);
-        const Special = localStorage.getItem(currentName + "2sumพิเศษ");
-        setBuy3(Special || 0);
-        const Saving = localStorage.getItem(currentName + "2sumออมสิน");
-        setBuy4(Saving || 0);
-        const Normal = localStorage.getItem(currentName + "2sumปกติ");
-        setBuy5(Normal || 0);
-        const Agriculture = localStorage.getItem(currentName + "2sumธกส");
-        setBuy6(Agriculture || 0);
-        const vip = localStorage.getItem(currentName + "2sumVIP");
-        setBuy7(vip || 0);
-        const laoevo = localStorage.getItem(currentName + "2sumลาวพัฒนา");
-        setBuy8(laoevo || 0);
-        const laoharmony = localStorage.getItem(currentName + "2sumลาวสามัคคี");
-        setBuy9(laoharmony || 0);
-    }, [currentName])
-
-    const [fetched, setFetched] = useState(false);
-    useEffect(() => {
-        const saved = localStorage.getItem("currentpage3");
-        setCurrentName(saved || "ยาย");
-        setFetched(true);
-    }, [])
-    useEffect(() => {
-        if (fetched) {
-            localStorage.setItem("currentpage3", currentName);
-        }
-    }, [currentName])
 
     const [showOptions, setShowOptions] = useState(false);
     const handleOptionClick = (option) => {
