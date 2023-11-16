@@ -54,11 +54,11 @@ export default function Combination() {
 
             <div className="mt-4">
                 <input type="checkbox" id="up" name="up" checked={isUp} onChange={() => setIsUp(!isUp)} />
-                <label for="up"> บน</label><br />
+                <label htmlFor="up"> บน</label><br />
                 <input type="checkbox" id="down" name="down" checked={isDown} onChange={() => setIsDown(!isDown)} />
-                <label for="down"> ล่าง</label><br />
+                <label htmlFor="down"> ล่าง</label><br />
                 <input type="checkbox" id="switch" name="switch" checked={isSwitch} onChange={() => setIsSwitch(!isSwitch)} />
-                <label for="switch"> กลับเลข</label><br /><br />
+                <label htmlFor="switch"> กลับเลข</label><br /><br />
 
                 <input type="number" placeholder="บาท (฿)" className="p-2 border-2 border-blue-200 rounded-lg w-full" onChange={(e) => setCost(e.target.value)} />
             </div>
