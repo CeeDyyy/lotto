@@ -28,7 +28,7 @@ export default function BuyandWin() {
             'นช': "bg-blue-200"
         })[currentName] || "bg-white")
     }, [currentName])
-    
+
     const [type, setType] = useState("เฉพาะกิจ")
     const [saving, setSaving] = useState("พิเศษ")
     const [normal, setNormal] = useState("ปกติ")
@@ -134,6 +134,75 @@ export default function BuyandWin() {
     useEffect(() => {
         setWin9(Number(win91) + Number(win92) + Number(win93))
     }, [win91, win92, win93])
+
+    useEffect(() => {
+        const saved = localStorage.getItem(currentName + "3");
+        setData(JSON.parse(saved));
+    }, [currentName])
+
+    useEffect(() => {
+        if (fetched) {
+            localStorage.setItem(currentName + "3", JSON.stringify({
+                "win11": win11,
+                "win12": win12,
+                "win13": win13,
+                "win21": win21,
+                "win22": win22,
+                "win23": win23,
+                "win31": win31,
+                "win32": win32,
+                "win33": win33,
+                "win41": win41,
+                "win42": win42,
+                "win43": win43,
+                "win51": win51,
+                "win52": win52,
+                "win53": win53,
+                "win61": win61,
+                "win62": win62,
+                "win63": win63,
+                "win71": win71,
+                "win72": win72,
+                "win73": win73,
+                "win81": win81,
+                "win82": win82,
+                "win83": win83,
+                "win91": win91,
+                "win92": win92,
+                "win93": win93,
+            }));
+        }
+    }, [win11, win12, win13, win21, win22, win23, win31, win32, win33, win41, win42, win43, win51, win52, win53, win61, win62, win63, win71, win72, win73, win81, win82, win83, win91, win92, win93])
+
+    function setData(saved) {
+        setWin11(saved?.win11 || 0);
+        setWin12(saved?.win12 || 0);
+        setWin13(saved?.win13 || 0);
+        setWin21(saved?.win21 || 0);
+        setWin22(saved?.win22 || 0);
+        setWin23(saved?.win23 || 0);
+        setWin31(saved?.win31 || 0);
+        setWin32(saved?.win32 || 0);
+        setWin33(saved?.win33 || 0);
+        setWin41(saved?.win41 || 0);
+        setWin42(saved?.win42 || 0);
+        setWin43(saved?.win43 || 0);
+        setWin51(saved?.win51 || 0);
+        setWin52(saved?.win52 || 0);
+        setWin53(saved?.win53 || 0);
+        setWin61(saved?.win61 || 0);
+        setWin62(saved?.win62 || 0);
+        setWin63(saved?.win63 || 0);
+        setWin71(saved?.win71 || 0);
+        setWin72(saved?.win72 || 0);
+        setWin73(saved?.win73 || 0);
+        setWin81(saved?.win81 || 0);
+        setWin82(saved?.win82 || 0);
+        setWin83(saved?.win83 || 0);
+        setWin91(saved?.win91 || 0);
+        setWin92(saved?.win92 || 0);
+        setWin93(saved?.win93 || 0);
+    }
 
     const [finalResult, setFinalResult] = useState(0);
     useEffect(() => {
