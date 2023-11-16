@@ -5,7 +5,6 @@ import React, { useState, useEffect, useReducer } from "react"
 export default function BuyandWin() {
     const options = ['ยาย', 'ดา', 'อจ.', 'นช'];
     const [currentName, setCurrentName] = useState("ยาย");
-    const [showOptions, setShowOptions] = useState(false);
     const today = new Date();
     const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
     const [type, setType] = useState("เฉพาะกิจ")
@@ -100,6 +99,13 @@ export default function BuyandWin() {
         const laoharmony = localStorage.getItem(currentName + "2sum" + "ลาวสามัคคี");
         setBuy6(laoharmony);
     }, [])
+
+    const [showOptions, setShowOptions] = useState(false);
+
+    const handleOptionClick = (option) => {
+        setCurrentName(option);
+        setShowOptions(false);
+    };
 
     return (
         <div className="text-base">
