@@ -53,7 +53,7 @@ export default function UpDown() {
                         type="text"
                         value={currentName}
                         className={`w-full text-center ${bgColor}`}
-                        onClick={(e) => { setShowOptions(!showOptions); e.target.select(); }}
+                        onClick={(e) => setShowOptions(!showOptions)}
                         onChange={(e) => setCurrentName(e.target.value)}
                     />
                     {showOptions &&
