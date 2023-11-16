@@ -44,24 +44,12 @@ export default function Home() {
         </button>
       </div>
 
-      <div className={page === 'combination' ? "block" : "hidden"}>
-        <Combination />
-      </div>
-      <div className={page === 'two' ? "block" : "hidden"}>
-        <CombinationOfTwo />
-      </div>
-      <div className={page === 'updown' ? "block" : "hidden"}>
-        <UpDown />
-      </div>
-      <div className={page === 'switch' ? "block" : "hidden"}>
-        <Switch />
-      </div>
-      <div className={page === 'setxbaht' ? "block" : "hidden"}>
-        <SetXBaht />
-      </div>
-      <div className={page === 'buyandwin' ? "block" : "hidden"}>
-        <BuyandWin />
-      </div>
+      {page === 'combination' && <Combination />}
+      {page === 'two' && <CombinationOfTwo />}
+      {page === 'updown' && <UpDown />}
+      {page === 'switch' && <Switch />}
+      {page === 'setxbaht' && <SetXBaht />}
+      {page === 'buyandwin' && <BuyandWin />}
     </div>
   )
 }
