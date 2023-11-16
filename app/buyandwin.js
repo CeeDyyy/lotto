@@ -101,7 +101,6 @@ export default function BuyandWin() {
     }, [currentName])
 
     const [showOptions, setShowOptions] = useState(false);
-
     const handleOptionClick = (option) => {
         setCurrentName(option);
         setShowOptions(false);
