@@ -26,23 +26,23 @@ export default function BuyandWin() {
     const [win31, setWin31] = useState(0);
     const [win32, setWin32] = useState(0);
     const [win33, setWin33] = useState(0);
-    const [win3, setWin2] = useState(0);
+    const [win3, setWin3] = useState(0);
     const [win51, setWin51] = useState(0);
     const [win52, setWin52] = useState(0);
     const [win53, setWin53] = useState(0);
-    const [win5, setWin3] = useState(0);
+    const [win5, setWin5] = useState(0);
     const [win71, setWin71] = useState(0);
     const [win72, setWin72] = useState(0);
     const [win73, setWin73] = useState(0);
-    const [win7, setWin4] = useState(0);
+    const [win7, setWin7] = useState(0);
     const [win81, setWin81] = useState(0);
     const [win82, setWin82] = useState(0);
     const [win83, setWin83] = useState(0);
-    const [win8, setWin5] = useState(0);
+    const [win8, setWin8] = useState(0);
     const [win91, setWin91] = useState(0);
     const [win92, setWin92] = useState(0);
     const [win93, setWin93] = useState(0);
-    const [win9, setWin6] = useState(0);
+    const [win9, setWin9] = useState(0);
     const [finalResult, setFinalResult] = useState(0);
 
     useEffect(() => {
@@ -50,23 +50,23 @@ export default function BuyandWin() {
     }, [win11, win12, win13])
 
     useEffect(() => {
-        setWin2(Number(win31) + Number(win32) + Number(win33))
+        setWin3(Number(win31) + Number(win32) + Number(win33))
     }, [win31, win32, win33])
 
     useEffect(() => {
-        setWin3(Number(win51) + Number(win52) + Number(win53))
+        setWin5(Number(win51) + Number(win52) + Number(win53))
     }, [win51, win52, win53])
 
     useEffect(() => {
-        setWin4(Number(win71) + Number(win72) + Number(win73))
+        setWin7(Number(win71) + Number(win72) + Number(win73))
     }, [win71, win72, win73])
 
     useEffect(() => {
-        setWin5(Number(win81) + Number(win82) + Number(win83))
+        setWin8(Number(win81) + Number(win82) + Number(win83))
     }, [win81, win82, win83])
 
     useEffect(() => {
-        setWin6(Number(win91) + Number(win92) + Number(win93))
+        setWin9(Number(win91) + Number(win92) + Number(win93))
     }, [win91, win92, win93])
 
     useEffect(() => {
