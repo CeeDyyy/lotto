@@ -126,7 +126,7 @@ export default function BuyandWin() {
         setBuy8(laoevo || 0);
         const laoharmony = localStorage.getItem(currentName + "2sumลาวสามัคคี");
         setBuy9(laoharmony || 0);
-    }, [currentName, type, saving, normal])
+    }, [currentName])
 
     const [fetched, setFetched] = useState(false);
     useEffect(() => {
