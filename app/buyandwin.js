@@ -10,37 +10,37 @@ export default function BuyandWin() {
     const [type, setType] = useState("เฉพาะกิจ")
     const [saving, setSaving] = useState("พิเศษ")
     const [normal, setNormal] = useState("ปกติ")
-    const [buy1, setBuy1] = useState("");
-    const [buy2, setBuy2] = useState("");
-    const [buy3, setBuy3] = useState("");
-    const [buy4, setBuy4] = useState("");
-    const [buy5, setBuy5] = useState("");
-    const [buy6, setBuy6] = useState("");
-    const [win11, setWin11] = useState("");
-    const [win12, setWin12] = useState("");
-    const [win13, setWin13] = useState("");
-    const [win1, setWin1] = useState("");
-    const [win21, setWin21] = useState("");
-    const [win22, setWin22] = useState("");
-    const [win23, setWin23] = useState("");
-    const [win2, setWin2] = useState("");
-    const [win31, setWin31] = useState("");
-    const [win32, setWin32] = useState("");
-    const [win33, setWin33] = useState("");
-    const [win3, setWin3] = useState("");
-    const [win41, setWin41] = useState("");
-    const [win42, setWin42] = useState("");
-    const [win43, setWin43] = useState("");
-    const [win4, setWin4] = useState("");
-    const [win51, setWin51] = useState("");
-    const [win52, setWin52] = useState("");
-    const [win53, setWin53] = useState("");
-    const [win5, setWin5] = useState("");
-    const [win61, setWin61] = useState("");
-    const [win62, setWin62] = useState("");
-    const [win63, setWin63] = useState("");
-    const [win6, setWin6] = useState("");
-    const [finalResult, setFinalResult] = useState("");
+    const [buy1, setBuy1] = useState(0);
+    const [buy2, setBuy2] = useState(0);
+    const [buy3, setBuy3] = useState(0);
+    const [buy4, setBuy4] = useState(0);
+    const [buy5, setBuy5] = useState(0);
+    const [buy6, setBuy6] = useState(0);
+    const [win11, setWin11] = useState(0);
+    const [win12, setWin12] = useState(0);
+    const [win13, setWin13] = useState(0);
+    const [win1, setWin1] = useState(0);
+    const [win21, setWin21] = useState(0);
+    const [win22, setWin22] = useState(0);
+    const [win23, setWin23] = useState(0);
+    const [win2, setWin2] = useState(0);
+    const [win31, setWin31] = useState(0);
+    const [win32, setWin32] = useState(0);
+    const [win33, setWin33] = useState(0);
+    const [win3, setWin3] = useState(0);
+    const [win41, setWin41] = useState(0);
+    const [win42, setWin42] = useState(0);
+    const [win43, setWin43] = useState(0);
+    const [win4, setWin4] = useState(0);
+    const [win51, setWin51] = useState(0);
+    const [win52, setWin52] = useState(0);
+    const [win53, setWin53] = useState(0);
+    const [win5, setWin5] = useState(0);
+    const [win61, setWin61] = useState(0);
+    const [win62, setWin62] = useState(0);
+    const [win63, setWin63] = useState(0);
+    const [win6, setWin6] = useState(0);
+    const [finalResult, setFinalResult] = useState(0);
     const [resultContent, setResultContent] = useState("สุทธิ")
 
     useEffect(() => {
@@ -75,7 +75,7 @@ export default function BuyandWin() {
         setResultContent(finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ")
     }, [finalResult])
 
-    const [bgColor, setBgColor] = useState("");
+    const [bgColor, setBgColor] = useState("bg-white");
     useEffect(() => {
         setBgColor(({
             'ยาย': "bg-pink-200",
@@ -86,19 +86,20 @@ export default function BuyandWin() {
     }, [currentName])
 
     useEffect(() => {
+        console.log(currentName)
         const Type = localStorage.getItem(currentName + "2sum" + type);
-        setBuy1(Type);
+        setBuy1(Type || 0);
         const Saving = localStorage.getItem(currentName + "2sum" + saving);
-        setBuy2(Saving);
+        setBuy2(Saving || 0);
         const Normal = localStorage.getItem(currentName + "2sum" + normal);
-        setBuy3(Normal);
+        setBuy3(Normal || 0);
         const vip = localStorage.getItem(currentName + "2sum" + "VIP");
-        setBuy4(vip);
+        setBuy4(vip || 0);
         const laoevo = localStorage.getItem(currentName + "2sum" + "ลาวพัฒนา");
-        setBuy5(laoevo);
+        setBuy5(laoevo || 0);
         const laoharmony = localStorage.getItem(currentName + "2sum" + "ลาวสามัคคี");
-        setBuy6(laoharmony);
-    }, [])
+        setBuy6(laoharmony || 0);
+    }, [currentName])
 
     const [showOptions, setShowOptions] = useState(false);
 
