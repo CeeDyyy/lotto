@@ -87,12 +87,12 @@ export default function BuyandWin() {
     }, [currentName])
 
     useEffect(() => {
-        const typee = localStorage.getItem(currentName + "2sum" + type);
-        setBuy1(typee);
-        const savingg = localStorage.getItem(currentName + "2sum" + saving);
-        setBuy2(savingg);
-        const normall = localStorage.getItem(currentName + "2sum" + normal);
-        setBuy3(normall);
+        const Type = localStorage.getItem(currentName + "2sum" + type);
+        setBuy1(Type);
+        const Saving = localStorage.getItem(currentName + "2sum" + saving);
+        setBuy2(Saving);
+        const Normal = localStorage.getItem(currentName + "2sum" + normal);
+        setBuy3(Normal);
         const vip = localStorage.getItem(currentName + "2sum" + "VIP");
         setBuy4(vip);
         const laoevo = localStorage.getItem(currentName + "2sum" + "ลาวพัฒนา");
