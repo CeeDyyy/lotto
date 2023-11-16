@@ -158,7 +158,7 @@ export default function BuyandWin() {
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin22(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin23(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-green-200 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin2(e.target.value)} value={win2} />
-                    <button onClick={() => saving === "ปกติ" ? setNormal("ธกส") : setNormal("ปกติ")} className="w-full">{normal}</button>
+                    <button onClick={() => normal === "ปกติ" ? setNormal("ธกส") : setNormal("ปกติ")} className="w-full">{normal}</button>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy3(e.target.value)} value={buy3} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin31(e.target.value)} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin32(e.target.value)} />
