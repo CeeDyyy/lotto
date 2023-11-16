@@ -100,6 +100,18 @@ export default function BuyandWin() {
         setBuy6(laoharmony || 0);
     }, [currentName, type, saving, normal])
 
+    const [fetched, setFetched] = useState(false);
+    useEffect(() => {
+        const saved = localStorage.getItem("currentpage3");
+        setCurrentName(saved || "ยาย");
+        setFetched(true);
+    }, [])
+    useEffect(() => {
+        if (fetched) {
+            localStorage.setItem("currentpage3", currentName);
+        }
+    }, [currentName])
+
     const [showOptions, setShowOptions] = useState(false);
     const handleOptionClick = (option) => {
         setCurrentName(option);
