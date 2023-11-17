@@ -326,6 +326,6 @@ export default function BuyandWin() {
                     <p className="col-span-4 text-center text-white bg-white" onClick={() => localStorage.clear()}>clear localStorage</p>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
