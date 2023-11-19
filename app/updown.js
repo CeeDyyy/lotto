@@ -42,7 +42,7 @@ export default function UpDown() {
     const [sumSideLeft, setSumSideLeft] = useState("");
     const [sumSideRight, setSumSideRight] = useState("");
     useEffect(() => {
-        localStorage.setItem(currentName + "2sum" + mode, sumSideLeft + sumSideRight);
+        if (fetched) localStorage.setItem(currentName + "2sum" + mode, sumSideLeft + sumSideRight);
     }, [sumSideLeft, sumSideRight])
 
     return (
