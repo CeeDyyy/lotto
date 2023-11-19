@@ -29,9 +29,6 @@ export default function BuyandWin() {
         })[currentName] || "bg-white")
     }, [currentName])
 
-    const [type, setType] = useState("เฉพาะกิจ")
-    const [saving, setSaving] = useState("พิเศษ")
-    const [normal, setNormal] = useState("ปกติ")
     const [buy1, setBuy1] = useState(0);
     const [buy2, setBuy2] = useState(0);
     const [buy3, setBuy3] = useState(0);
@@ -245,82 +242,61 @@ export default function BuyandWin() {
                     <p className="w-full text-center border-x-2 bg-pink-100">ยอดซื้อ</p>
                     <p className="w-full text-center border-x-2 col-span-3 bg-teal-100">ยอดรับ</p>
                     <p className="w-full text-center border-x-2 bg-green-200">รวมรับ</p>
-                    {type === 'เฉพาะกิจ' ?
-                        <>
-                            <button onClick={() => setType("รัฐบาล")} className="w-full">เฉพาะกิจ</button>
-                            <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy1(e.target.value)} value={buy1} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin11(e.target.value)} value={win11} ref={el => (winRefs.current[11] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[saving === 'พิเศษ' ? 31 : 41].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin12(e.target.value)} value={win12} ref={el => (winRefs.current[12] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[saving === 'พิเศษ' ? 32 : 42].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin13(e.target.value)} value={win13} ref={el => (winRefs.current[13] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[saving === 'พิเศษ' ? 33 : 43].focus()} />
-                            <p className="w-full text-end border-2 bg-green-200 text-lg">{win1}</p>
-                        </>
-                        :
-                        <>
-                            <button onClick={() => setType("เฉพาะกิจ")} className="w-full">รัฐบาล</button>
-                            <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy2(e.target.value)} value={buy2} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin21(e.target.value)} value={win21} ref={el => (winRefs.current[21] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[saving === 'พิเศษ' ? 31 : 41].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin22(e.target.value)} value={win22} ref={el => (winRefs.current[22] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[saving === 'พิเศษ' ? 32 : 42].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin23(e.target.value)} value={win23} ref={el => (winRefs.current[23] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[saving === 'พิเศษ' ? 33 : 43].focus()} />
-                            <p className="w-full text-end border-2 bg-green-200 text-lg">{win2}</p>
-                        </>
-                    }
-                    {saving === 'พิเศษ' ?
-                        <>
-                            <button onClick={() => setSaving("ออมสิน")} className="w-full">พิเศษ</button>
-                            <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy3(e.target.value)} value={buy3} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin31(e.target.value)} value={win31} ref={el => (winRefs.current[31] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[normal === 'ปกติ' ? 51 : 61].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin32(e.target.value)} value={win32} ref={el => (winRefs.current[32] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[normal === 'ปกติ' ? 52 : 62].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin33(e.target.value)} value={win33} ref={el => (winRefs.current[33] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[normal === 'ปกติ' ? 53 : 63].focus()} />
-                            <p className="w-full text-end border-2 bg-green-200 text-lg">{win3}</p>
-                        </>
-                        :
-                        <>
-                            <button onClick={() => setSaving("พิเศษ")} className="w-full">ออมสิน</button>
-                            <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy4(e.target.value)} value={buy4} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin41(e.target.value)} value={win41} ref={el => (winRefs.current[41] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[normal === 'ปกติ' ? 51 : 61].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin42(e.target.value)} value={win42} ref={el => (winRefs.current[42] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[normal === 'ปกติ' ? 52 : 52].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin43(e.target.value)} value={win43} ref={el => (winRefs.current[43] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[normal === 'ปกติ' ? 53 : 63].focus()} />
-                            <p className="w-full text-end border-2 bg-green-200 text-lg">{win4}</p>
-                        </>
-                    }
-                    {normal === 'ปกติ' ?
-                        <>
-                            <button onClick={() => setNormal("ธกส")} className="w-full">ปกติ</button>
-                            <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy5(e.target.value)} value={buy5} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin51(e.target.value)} value={win51} ref={el => (winRefs.current[51] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[71].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin52(e.target.value)} value={win52} ref={el => (winRefs.current[52] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[72].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin53(e.target.value)} value={win53} ref={el => (winRefs.current[53] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[73].focus()} />
-                            <p className="w-full text-end border-2 bg-green-200 text-lg">{win5}</p>
-                        </>
-                        :
-                        <>
-                            <button onClick={() => setNormal("ปกติ")} className="w-full">ธกส</button>
-                            <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy6(e.target.value)} value={buy6} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin61(e.target.value)} value={win61} ref={el => (winRefs.current[61] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[71].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin62(e.target.value)} value={win62} ref={el => (winRefs.current[62] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[72].focus()} />
-                            <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin63(e.target.value)} value={win63} ref={el => (winRefs.current[63] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[73].focus()} />
-                            <p className="w-full text-end border-2 bg-green-200 text-lg">{win6}</p>
-                        </>
-                    }
+                    <p className="w-full text-end border-2">เฉพาะกิจ</p>
+                    <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy1(e.target.value)} value={buy1} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin11(e.target.value)} value={win11} ref={el => (winRefs.current[11] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[21].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin12(e.target.value)} value={win12} ref={el => (winRefs.current[12] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[22].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin13(e.target.value)} value={win13} ref={el => (winRefs.current[13] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[23].focus()} />
+                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win1}</p>
+                    <p className="w-full text-end border-2">พิเศษ</p>
+                    <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy3(e.target.value)} value={buy3} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin31(e.target.value)} value={win31} ref={el => (winRefs.current[21] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[31].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin32(e.target.value)} value={win32} ref={el => (winRefs.current[22] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[32].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin33(e.target.value)} value={win33} ref={el => (winRefs.current[23] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[33].focus()} />
+                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win2}</p>
+                    <p className="w-full text-end border-2">ปกติ</p>
+                    <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy5(e.target.value)} value={buy5} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin51(e.target.value)} value={win51} ref={el => (winRefs.current[31] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[41].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin52(e.target.value)} value={win52} ref={el => (winRefs.current[32] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[42].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin53(e.target.value)} value={win53} ref={el => (winRefs.current[33] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[43].focus()} />
+                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win3}</p>
                     <p className="w-full text-end border-2">VIP</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy7(e.target.value)} value={buy7} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin71(e.target.value)} value={win71} ref={el => (winRefs.current[71] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[81].focus()} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin72(e.target.value)} value={win72} ref={el => (winRefs.current[72] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[82].focus()} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin73(e.target.value)} value={win73} ref={el => (winRefs.current[73] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[83].focus()} />
-                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win7}</p>
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin71(e.target.value)} value={win71} ref={el => (winRefs.current[41] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[51].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin72(e.target.value)} value={win72} ref={el => (winRefs.current[42] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[52].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin73(e.target.value)} value={win73} ref={el => (winRefs.current[43] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[53].focus()} />
+                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win4}</p>
                     <p className="w-full text-end border-2">ลาวพัฒนา</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy8(e.target.value)} value={buy8} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin81(e.target.value)} value={win81} ref={el => (winRefs.current[81] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[91].focus()} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin82(e.target.value)} value={win82} ref={el => (winRefs.current[82] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[92].focus()} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin83(e.target.value)} value={win83} ref={el => (winRefs.current[83] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[93].focus()} />
-                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win8}</p>
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin81(e.target.value)} value={win81} ref={el => (winRefs.current[51] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[61].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin82(e.target.value)} value={win82} ref={el => (winRefs.current[52] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[62].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin83(e.target.value)} value={win83} ref={el => (winRefs.current[53] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[63].focus()} />
+                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win5}</p>
                     <p className="w-full text-end border-2">ลาวสามัคคี</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy9(e.target.value)} value={buy9} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin91(e.target.value)} value={win91} ref={el => (winRefs.current[91] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[type === 'เฉพาะกิจ' ? 11 : 21].focus()} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin92(e.target.value)} value={win92} ref={el => (winRefs.current[92] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[type === 'เฉพาะกิจ' ? 12 : 22].focus()} />
-                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin93(e.target.value)} value={win93} ref={el => (winRefs.current[93] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[type === 'เฉพาะกิจ' ? 13 : 23].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin91(e.target.value)} value={win91} ref={el => (winRefs.current[61] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[71].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin92(e.target.value)} value={win92} ref={el => (winRefs.current[62] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[72].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin93(e.target.value)} value={win93} ref={el => (winRefs.current[63] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[73].focus()} />
+                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win6}</p>
+                    <p className="w-full text-end border-2">รัฐบาล</p>
+                    <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy2(e.target.value)} value={buy2} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin21(e.target.value)} value={win21} ref={el => (winRefs.current[71] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[81].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin22(e.target.value)} value={win22} ref={el => (winRefs.current[72] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[82].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin23(e.target.value)} value={win23} ref={el => (winRefs.current[73] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[83].focus()} />
+                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win7}</p>
+                    <p className="w-full text-end border-2">ออมสิน</p>
+                    <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy4(e.target.value)} value={buy4} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin41(e.target.value)} value={win41} ref={el => (winRefs.current[81] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[91].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin42(e.target.value)} value={win42} ref={el => (winRefs.current[82] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[92].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin43(e.target.value)} value={win43} ref={el => (winRefs.current[83] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[93].focus()} />
+                    <p className="w-full text-end border-2 bg-green-200 text-lg">{win8}</p>
+                    <p className="w-full text-end border-2">ธกส</p>
+                    <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy6(e.target.value)} value={buy6} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin61(e.target.value)} value={win61} ref={el => (winRefs.current[91] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[11].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin62(e.target.value)} value={win62} ref={el => (winRefs.current[92] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[12].focus()} />
+                    <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin63(e.target.value)} value={win63} ref={el => (winRefs.current[93] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[13].focus()} />
                     <p className="w-full text-end border-2 bg-green-200 text-lg">{win9}</p>
-                    <p className="w-full text-start border-2">{today.getDate()}/{months[today.getMonth()]}</p>
+                    <p className="w-full text-end border-2">{today.getDate()}/{months[today.getMonth()]}</p>
                     <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9)}</p>
                     <p className="border-x-2 text-center bg-green-200 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9)}</p>
                     <p className="w-full text-end border-2 font-bold">{finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ"}</p>
