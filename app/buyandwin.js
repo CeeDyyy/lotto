@@ -42,22 +42,22 @@ export default function BuyandWin() {
     useEffect(() => {
         const Particular = localStorage.getItem(currentName + "2sumเฉพาะกิจ");
         setBuy1(Particular || 0);
-        const Gov = localStorage.getItem(currentName + "2sumรัฐบาล");
-        setBuy2(Gov || 0);
         const Special = localStorage.getItem(currentName + "2sumพิเศษ");
-        setBuy3(Special || 0);
-        const Saving = localStorage.getItem(currentName + "2sumออมสิน");
-        setBuy4(Saving || 0);
+        setBuy2(Special || 0);
         const Normal = localStorage.getItem(currentName + "2sumปกติ");
-        setBuy5(Normal || 0);
-        const Agriculture = localStorage.getItem(currentName + "2sumธกส");
-        setBuy6(Agriculture || 0);
+        setBuy3(Normal || 0);
         const vip = localStorage.getItem(currentName + "2sumVIP");
-        setBuy7(vip || 0);
+        setBuy4(vip || 0);
         const laoevo = localStorage.getItem(currentName + "2sumลาวพัฒนา");
-        setBuy8(laoevo || 0);
+        setBuy5(laoevo || 0);
         const laoharmony = localStorage.getItem(currentName + "2sumลาวสามัคคี");
-        setBuy9(laoharmony || 0);
+        setBuy6(laoharmony || 0);
+        const Gov = localStorage.getItem(currentName + "2sumรัฐบาล");
+        setBuy7(Gov || 0);
+        const Saving = localStorage.getItem(currentName + "2sumออมสิน");
+        setBuy8(Saving || 0);
+        const Agriculture = localStorage.getItem(currentName + "2sumธกส");
+        setBuy9(Agriculture || 0);
     }, [currentName])
 
     const winRefs = useRef([]);
