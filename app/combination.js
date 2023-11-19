@@ -42,9 +42,9 @@ export default function Combination() {
                         placeholder="X"
                         className={`
                         ${index === 0 && 'order-1 border-l-2 border-t-2'} 
-                        ${index === 1 && 'order-6 border-r-2 border-y-2'} 
+                        ${index === 1 && 'order-4 border-l-2 border-y-2'} 
                         ${index === 2 && 'order-5 border-x-2 border-y-2'} 
-                        ${index === 3 && 'order-4 border-l-2 border-y-2'} 
+                        ${index === 3 && 'order-6 border-r-2 border-y-2'} 
                         ${index === 4 && 'order-3 border-r-2 border-t-2'} 
                         ${index === 5 && 'order-2 border-x-2 border-t-2'} 
                         text-3xl bg-yellow-100 placeholder-gray-400 text-center font-normal w-full py-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-gray-400
