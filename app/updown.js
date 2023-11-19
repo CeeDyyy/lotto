@@ -89,7 +89,7 @@ export default function UpDown() {
                 <p className="text-end font-black">รวม</p>
                 <p className={`w-full font-black ${bgColor}`}>{sumSideLeft + sumSideRight}</p>
             </div>
-            <input type="text" onChange={(e) => setWinArr(e.target.value)} value={winArr} className="border" />
+            <input type="text" onChange={(e) => setWinArr(e.target.value)} value={winArr} className="w-full border" />
         </div>
     )
 }
