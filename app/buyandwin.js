@@ -299,8 +299,8 @@ export default function BuyandWin() {
                     <p className="w-full text-end border-2">{today.getDate()}/{months[today.getMonth()]}</p>
                     <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9)}</p>
                     <p className="border-x-2 text-center bg-green-200 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9)}</p>
-                    <p className="w-full text-end border-2 font-bold" onClick={() => {localStorage.clear(); window.location.reload(false);}}>{finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ"}</p>
-                    <p className={`font-bold text-lg ${bgColor}`}>{finalResult}</p>
+                    <p className="w-full text-end border-2 font-bold py-4" onClick={() => {localStorage.clear(); window.location.reload(false);}}>{finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ"}</p>
+                    <p className={`text-center font-bold text-lg py-4 ${bgColor}`}>{finalResult}</p>
                 </div>
             </div>
         </div>
