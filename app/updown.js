@@ -69,7 +69,7 @@ export default function UpDown() {
                         </>
                     }
                 </div>
-                <select onChange={(e) => { setMode(e.target.value); }} className={`w-full text-center ${bgColor}`}>
+                <select onChange={(e) => { setMode(e.target.value); }} value={mode} className={`w-full text-center ${bgColor}`}>
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
                     <option value="ปกติ">ปกติ</option>
