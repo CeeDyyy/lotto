@@ -205,8 +205,8 @@ export default function BuyandWin() {
 
     const [finalResult, setFinalResult] = useState(0);
     useEffect(() => {
-        setFinalResult((Number(win1) + Number(win3) + Number(win5) + Number(win7) + Number(win8) + Number(win9)) - (Number(buy1) + Number(buy3) + Number(buy5) + Number(buy7) + Number(buy8) + Number(buy9)))
-    }, [buy1, buy3, buy5, buy7, buy8, buy9, win1, win3, win5, win7, win8, win9])
+        setFinalResult((Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9)) - (Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9)))
+    }, [buy1, buy2, buy3, buy4, buy5, buy6, buy7, buy8, buy9, win1, win2, win3, win4, win5, win6, win7, win8, win9])
 
     const [showOptions, setShowOptions] = useState(false);
     const handleOptionClick = (option) => {
