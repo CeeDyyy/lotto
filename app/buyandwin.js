@@ -135,13 +135,13 @@ export default function BuyandWin() {
     }, [win91, win92, win93])
 
     useEffect(() => {
-        const saved = localStorage.getItem(currentName + "3");
+        const saved = localStorage.getItem(currentName + "4");
         setData(JSON.parse(saved));
     }, [currentName])
 
     useEffect(() => {
         if (fetched) {
-            localStorage.setItem(currentName + "3", JSON.stringify({
+            localStorage.setItem(currentName + "4", JSON.stringify({
                 "win11": win11,
                 "win12": win12,
                 "win13": win13,
