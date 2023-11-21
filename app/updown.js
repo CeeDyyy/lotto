@@ -45,8 +45,6 @@ export default function UpDown() {
         if (fetched) localStorage.setItem(currentName + "2sum" + mode, sumSideLeft + sumSideRight);
     }, [sumSideLeft, sumSideRight])
 
-    const [winArr, setWinArr] = useState("_")
-
     return (
         <div className="gird justify-items-center text-2xl">
             <div className="grid grid-cols-2 divide-x-2 divide-black">
@@ -82,19 +80,18 @@ export default function UpDown() {
                     <option value="ออมสิน">ออมสิน</option>
                     <option value="ธกส">ธกส</option>
                 </select>
-                <OneUpDown fetched={fetched} currentName={currentName} side="L" mode={mode} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} winArr={winArr} />
-                <OneUpDown fetched={fetched} currentName={currentName} side="R" mode={mode} bgColor={bgColor} sumSide={sumSideRight} setSumSide={setSumSideRight} winArr={winArr} />
+                <OneUpDown fetched={fetched} currentName={currentName} side="L" mode={mode} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />
+                <OneUpDown fetched={fetched} currentName={currentName} side="R" mode={mode} bgColor={bgColor} sumSide={sumSideRight} setSumSide={setSumSideRight} />
             </div>
             <div className="w-full flex">
                 <p className="text-end font-black">รวม</p>
                 <p className={`w-full font-black ${bgColor}`}>{sumSideLeft + sumSideRight}</p>
             </div>
-            {/* <input type="text" onChange={(e) => setWinArr(e.target.value)} value={winArr} className="w-full border" /> */}
         </div>
     )
 }
 
-function OneUpDown({ fetched, currentName, side, mode, setSumSide = () => { }, winArr="" }) {
+function OneUpDown({ fetched, currentName, side, mode, setSumSide = () => { } }) {
     const today = new Date();
     const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
     const [info1, setInfo1] = useState("");
@@ -208,41 +205,39 @@ function OneUpDown({ fetched, currentName, side, mode, setSumSide = () => { }, w
     const upRefs = useRef([]);
     const downRefs = useRef([]);
 
-    const answer_array = winArr.split(',');
-
     return (
         <div className="grid grid-cols-3">
             <p className="text-lg text-center">{today.getDate() + "/" + months[today.getMonth()]}</p>
             <p className="text-center">บ</p>
             <p className="text-center">ล</p>
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info1) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info1} onChange={(e) => setInfo1(e.target.value)} ref={el => (infoRefs.current[1] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[2].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info1} onChange={(e) => setInfo1(e.target.value)} ref={el => (infoRefs.current[1] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[2].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up1} onChange={(e) => setUp1(e.target.value)} ref={el => (upRefs.current[1] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[2].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down1} onChange={(e) => setDown1(e.target.value)} ref={el => (downRefs.current[1] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[2].focus()} />
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info2) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info2} onChange={(e) => setInfo2(e.target.value)} ref={el => (infoRefs.current[2] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[3].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info2} onChange={(e) => setInfo2(e.target.value)} ref={el => (infoRefs.current[2] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[3].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up2} onChange={(e) => setUp2(e.target.value)} ref={el => (upRefs.current[2] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[3].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down2} onChange={(e) => setDown2(e.target.value)} ref={el => (downRefs.current[2] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[3].focus()} />
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info3) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info3} onChange={(e) => setInfo3(e.target.value)} ref={el => (infoRefs.current[3] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[4].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info3} onChange={(e) => setInfo3(e.target.value)} ref={el => (infoRefs.current[3] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[4].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up3} onChange={(e) => setUp3(e.target.value)} ref={el => (upRefs.current[3] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[4].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down3} onChange={(e) => setDown3(e.target.value)} ref={el => (downRefs.current[3] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[4].focus()} />
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info4) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info4} onChange={(e) => setInfo4(e.target.value)} ref={el => (infoRefs.current[4] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[5].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info4} onChange={(e) => setInfo4(e.target.value)} ref={el => (infoRefs.current[4] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[5].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up4} onChange={(e) => setUp4(e.target.value)} ref={el => (upRefs.current[4] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[5].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down4} onChange={(e) => setDown4(e.target.value)} ref={el => (downRefs.current[4] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[5].focus()} />
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info5) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info5} onChange={(e) => setInfo5(e.target.value)} ref={el => (infoRefs.current[5] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[6].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info5} onChange={(e) => setInfo5(e.target.value)} ref={el => (infoRefs.current[5] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[6].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up5} onChange={(e) => setUp5(e.target.value)} ref={el => (upRefs.current[5] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[6].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down5} onChange={(e) => setDown5(e.target.value)} ref={el => (downRefs.current[5] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[6].focus()} />
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info6) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info6} onChange={(e) => setInfo6(e.target.value)} ref={el => (infoRefs.current[6] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[7].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info6} onChange={(e) => setInfo6(e.target.value)} ref={el => (infoRefs.current[6] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[7].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up6} onChange={(e) => setUp6(e.target.value)} ref={el => (upRefs.current[6] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[7].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down6} onChange={(e) => setDown6(e.target.value)} ref={el => (downRefs.current[6] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[7].focus()} />
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info7) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info7} onChange={(e) => setInfo7(e.target.value)} ref={el => (infoRefs.current[7] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[8].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info7} onChange={(e) => setInfo7(e.target.value)} ref={el => (infoRefs.current[7] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[8].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up7} onChange={(e) => setUp7(e.target.value)} ref={el => (upRefs.current[7] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[8].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down7} onChange={(e) => setDown7(e.target.value)} ref={el => (downRefs.current[7] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[8].focus()} />
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info8) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info8} onChange={(e) => setInfo8(e.target.value)} ref={el => (infoRefs.current[8] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[9].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info8} onChange={(e) => setInfo8(e.target.value)} ref={el => (infoRefs.current[8] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[9].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up8} onChange={(e) => setUp8(e.target.value)} ref={el => (upRefs.current[8] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[9].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down8} onChange={(e) => setDown8(e.target.value)} ref={el => (downRefs.current[8] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[9].focus()} />
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info9) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info9} onChange={(e) => setInfo9(e.target.value)} ref={el => (infoRefs.current[9] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[10].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info9} onChange={(e) => setInfo9(e.target.value)} ref={el => (infoRefs.current[9] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[10].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up9} onChange={(e) => setUp9(e.target.value)} ref={el => (upRefs.current[9] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[10].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down9} onChange={(e) => setDown9(e.target.value)} ref={el => (downRefs.current[9] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[10].focus()} />
-            <input type="text" className={`w-full text-end border-2 ${answer_array.includes(info10) ? 'bg-green-200' : 'bg-white'}`} onClick={(e) => e.target.select()} value={info10} onChange={(e) => setInfo10(e.target.value)} ref={el => (infoRefs.current[10] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[1].focus()} />
+            <input type="text" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={info10} onChange={(e) => setInfo10(e.target.value)} ref={el => (infoRefs.current[10] = el)} onKeyDown={(e) => e.key === "Enter" && infoRefs.current[1].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={up10} onChange={(e) => setUp10(e.target.value)} ref={el => (upRefs.current[10] = el)} onKeyDown={(e) => e.key === "Enter" && upRefs.current[1].focus()} />
             <input type="number" className="w-full text-end border-2" onClick={(e) => e.target.select()} value={down10} onChange={(e) => setDown10(e.target.value)} ref={el => (downRefs.current[10] = el)} onKeyDown={(e) => e.key === "Enter" && downRefs.current[1].focus()} />
             <div className="text-center" onClick={() => setData("")}><p className="collapse">ล้าง</p></div>
