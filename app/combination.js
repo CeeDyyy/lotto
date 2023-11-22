@@ -28,8 +28,15 @@ export default function Combination() {
             setCode(arr)
         }
     }
+
+    const [ordering, setOrdering] = useState(['order-1 border-l-2 border-t-2', 'order-2 border-x-2 border-t-2', 'order-3 border-r-2 border-t-2', 'order-4 border-l-2 border-y-2', 'order-5 border-x-2 border-y-2', 'order-6 border-r-2 border-y-2']);
+
     return (
         <div className="m-2 flex flex-col justify-center">
+            <div className="mb-2 grid grid-cols-2 justify-items-center divide-x">
+                <button className="w-full py-2 hover:bg-gray-100" onClick={() => setOrdering(['order-1 border-l-2 border-t-2', 'order-4 border-l-2 border-y-2', 'order-5 border-x-2 border-y-2', 'order-6 border-r-2 border-y-2', 'order-3 border-r-2 border-t-2', 'order-2 border-x-2 border-t-2'])}>วนซ้าย</button>
+                <button className="w-full py-2 hover:bg-gray-100" onClick={() => setOrdering(['order-1 border-l-2 border-t-2', 'order-2 border-x-2 border-t-2', 'order-3 border-r-2 border-t-2', 'order-6 border-r-2 border-y-2', 'order-5 border-x-2 border-y-2', 'order-4 border-l-2 border-y-2'])}>วนขวา</button>
+            </div>
             <div className="mx-auto grid grid-cols-3 w-80">
                 {[...Array(digits)].map((_, index) =>
                     <input
@@ -41,12 +48,12 @@ export default function Combination() {
                         onFocus={(e) => e.target.select()}
                         placeholder="X"
                         className={`
-                        ${index === 0 && 'order-1 border-l-2 border-t-2'} 
-                        ${index === 1 && 'order-4 border-l-2 border-y-2'} 
-                        ${index === 2 && 'order-5 border-x-2 border-y-2'} 
-                        ${index === 3 && 'order-6 border-r-2 border-y-2'} 
-                        ${index === 4 && 'order-3 border-r-2 border-t-2'} 
-                        ${index === 5 && 'order-2 border-x-2 border-t-2'} 
+                        ${index === 0 && ordering[0]} 
+                        ${index === 1 && ordering[1]} 
+                        ${index === 2 && ordering[2]} 
+                        ${index === 3 && ordering[3]} 
+                        ${index === 4 && ordering[4]} 
+                        ${index === 5 && ordering[5]} 
                         text-3xl bg-yellow-100 placeholder-gray-400 text-center font-normal w-full py-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-gray-400
                         `}
                         key={index}
