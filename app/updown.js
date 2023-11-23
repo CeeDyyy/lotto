@@ -6,6 +6,7 @@ export default function UpDown() {
     const options = ['ยาย', 'ดา', 'อจ.', 'นช'];
     const [currentName, setCurrentName] = useState("ยาย");
     const [mode, setMode] = useState("เฉพาะกิจ");
+    const [modeGet, setModeGet] = useState("เฉพาะกิจ");
     const [bgColor, setBgColor] = useState("");
     useEffect(() => {
         setBgColor(({
@@ -22,6 +23,7 @@ export default function UpDown() {
         const jsonsaved = (JSON.parse(saved));
         setCurrentName(jsonsaved?.currentname || "ยาย");
         setMode(jsonsaved?.currentmode || "เฉพาะกิจ");
+        setModeGet(jsonsaved?.currentmode || "เฉพาะกิจ");
         setFetched(true);
     }, [])
     useEffect(() => {
@@ -69,7 +71,7 @@ export default function UpDown() {
                         </>
                     }
                 </div>
-                <select onChange={(e) => { setMode(e.target.value); }} value={mode} className={`w-full text-center ${bgColor}`}>
+                <select onChange={(e) => { setMode(e.target.value); setModeGet(e.target.value); }} value={mode} className={`w-full text-center ${bgColor}`}>
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
                     <option value="ปกติ">ปกติ</option>
@@ -80,18 +82,29 @@ export default function UpDown() {
                     <option value="ออมสิน">ออมสิน</option>
                     <option value="ธกส">ธกส</option>
                 </select>
-                <OneUpDown fetched={fetched} currentName={currentName} side="L" mode={mode} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />
-                <OneUpDown fetched={fetched} currentName={currentName} side="R" mode={mode} bgColor={bgColor} sumSide={sumSideRight} setSumSide={setSumSideRight} />
+                <OneUpDown fetched={fetched} currentName={currentName} side="L" mode={mode} modeGet={modeGet} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />
+                <OneUpDown fetched={fetched} currentName={currentName} side="R" mode={mode} modeGet={modeGet} bgColor={bgColor} sumSide={sumSideRight} setSumSide={setSumSideRight} />
             </div>
-            <div className="w-full flex">
+            <div className="w-full grid grid-cols-6">
                 <p className="text-end font-black">รวม</p>
-                <p className={`w-full font-black ${bgColor}`}>{sumSideLeft + sumSideRight}</p>
+                <p className={`col-span-2 font-black ${bgColor}`}>{sumSideLeft + sumSideRight}</p>
+                <select onChange={(e) => { setModeGet(e.target.value); }} value={modeGet} className={`col-span-3 text-center ${bgColor}`}>
+                    <option value="เฉพาะกิจ">เฉพาะกิจ</option>
+                    <option value="พิเศษ">พิเศษ</option>
+                    <option value="ปกติ">ปกติ</option>
+                    <option value="VIP">VIP</option>
+                    <option value="ลาวพัฒนา">ลาวพัฒนา</option>
+                    <option value="ลาวสามัคคี">ลาวสามัคคี</option>
+                    <option value="รัฐบาล">รัฐบาล</option>
+                    <option value="ออมสิน">ออมสิน</option>
+                    <option value="ธกส">ธกส</option>
+                </select>
             </div>
         </div>
     )
 }
 
-function OneUpDown({ fetched, currentName, side, mode, setSumSide = () => { } }) {
+function OneUpDown({ fetched, currentName, side, mode, modeGet, setSumSide = () => { } }) {
     const today = new Date();
     const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
     const [info1, setInfo1] = useState("");
@@ -126,9 +139,9 @@ function OneUpDown({ fetched, currentName, side, mode, setSumSide = () => { } })
     const [down10, setDown10] = useState("");
 
     useEffect(() => {
-        const saved = localStorage.getItem(currentName + "2" + side + mode);
+        const saved = localStorage.getItem(currentName + "2" + side + modeGet);
         setData(JSON.parse(saved));
-    }, [currentName, mode])
+    }, [currentName, modeGet])
 
     useEffect(() => {
         if (fetched) {
