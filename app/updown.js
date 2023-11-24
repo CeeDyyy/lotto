@@ -85,9 +85,10 @@ export default function UpDown() {
                 <OneUpDown fetched={fetched} currentName={currentName} side="L" mode={mode} modeGet={modeGet} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />
                 <OneUpDown fetched={fetched} currentName={currentName} side="R" mode={mode} modeGet={modeGet} bgColor={bgColor} sumSide={sumSideRight} setSumSide={setSumSideRight} />
             </div>
-            <div className="w-full grid grid-cols-6">
+            <div className="w-full grid grid-cols-6 gap-y-8">
                 <p className="text-end font-black">รวม</p>
-                <p className={`col-span-2 font-black ${bgColor}`}>{sumSideLeft + sumSideRight}</p>
+                <p className={`col-span-5 font-black ${bgColor}`}>{sumSideLeft + sumSideRight}</p>
+                <p className="col-span-3 text-end">คัดลอกจาก : </p>
                 <select onChange={(e) => { setModeGet(e.target.value); }} value={modeGet} className={`col-span-3 text-center ${bgColor}`}>
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
