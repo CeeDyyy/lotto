@@ -48,7 +48,7 @@ export default function UpDown() {
     }, [sumSideLeft, sumSideRight])
 
     return (
-        <div className="gird justify-items-center text-xl">
+        <div className="gird justify-items-center text-lg">
             <div className="grid grid-cols-2 divide-x-2 divide-black">
                 <div>
                     <input
