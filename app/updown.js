@@ -81,6 +81,8 @@ export default function UpDown() {
                     <option value="รัฐบาล">รัฐบาล</option>
                     <option value="ออมสิน">ออมสิน</option>
                     <option value="ธกส">ธกส</option>
+                    <option value="ดาวโจนส์">ดาวโจนส์</option>
+                    <option value="ดาวโจนส์V">ดาวโจนส์V</option>
                 </select>
                 <OneUpDown fetched={fetched} currentName={currentName} side="L" mode={mode} modeGet={modeGet} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />
                 <OneUpDown fetched={fetched} currentName={currentName} side="R" mode={mode} modeGet={modeGet} bgColor={bgColor} sumSide={sumSideRight} setSumSide={setSumSideRight} />
