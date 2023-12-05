@@ -101,6 +101,8 @@ export default function UpDown() {
                     <option value="รัฐบาล">รัฐบาล</option>
                     <option value="ออมสิน">ออมสิน</option>
                     <option value="ธกส">ธกส</option>
+                    <option value="ดาวโจนส์">ดาวโจนส์</option>
+                    <option value="ดาวโจนส์V">ดาวโจนส์V</option>
                 </select>
             </div>
         </div>
