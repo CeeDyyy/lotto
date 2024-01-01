@@ -334,13 +334,13 @@ export default function BuyandWin() {
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin42(e.target.value)} value={win42} ref={el => (winRefs.current[42] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[52].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin43(e.target.value)} value={win43} ref={el => (winRefs.current[43] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[53].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" value={win4} readOnly />
-                    <p className="w-full text-end border-2">ลาวพัฒนา</p>
+                    <p className="w-full text-end border-2">ลาวพ.</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy5(e.target.value)} value={buy5} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin51(e.target.value)} value={win51} ref={el => (winRefs.current[51] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[61].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin52(e.target.value)} value={win52} ref={el => (winRefs.current[52] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[62].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin53(e.target.value)} value={win53} ref={el => (winRefs.current[53] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[63].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" value={win5} readOnly />
-                    <p className="w-full text-end border-2">ลาวสามัคคี</p>
+                    <p className="w-full text-end border-2">ลาวส.</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy6(e.target.value)} value={buy6} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin61(e.target.value)} value={win61} ref={el => (winRefs.current[61] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[71].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin62(e.target.value)} value={win62} ref={el => (winRefs.current[62] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[72].focus()} />
@@ -396,8 +396,8 @@ export default function BuyandWin() {
                     <p className="w-full text-end border-2">{today.getDate()}/{months[today.getMonth()]}</p>
                     <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9) + Number(buy10) + Number(buy11)}</p>
                     <p className="border-x-2 text-center bg-green-200 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9) + Number(win100) + Number(win110)}</p>
-                    <p className="w-full text-end border-2 font-bold py-4" onClick={() => { localStorage.clear(); window.location.reload(false); }}>{finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ"}</p>
-                    <p className={`text-center font-bold text-lg py-4 ${bgColor}`}>{finalResult}</p>
+                    <p className="w-full text-end border-2 font-bold" onClick={() => { localStorage.clear(); window.location.reload(false); }}>{finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ"}</p>
+                    <p className={`text-center font-bold text-lg ${bgColor}`}>{finalResult}</p>
                 </div>
             </div>
         </div>
