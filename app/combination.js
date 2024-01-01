@@ -77,7 +77,7 @@ export default function Combination() {
                         <p className="collapse">x</p>
                         <p className="collapse">x</p>
                     </div>
-                    <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid">
+                    <div className="text-center border-x-2 border-gray-400 bg-yellow-50 grid">
                         <p>{code[0]}{code[1]}{code[2]}</p>
                         <p>{code[0]}{code[1]}{code[3]}</p>
                         <p>{code[0]}{code[1]}{code[4]}</p>
@@ -91,7 +91,7 @@ export default function Combination() {
                         <p className="collapse">x</p>
                         <p className="collapse">x</p>
                     </div>
-                    <div className="border-x-2 border-gray-400 px-4 bg-yellow-50 grid">
+                    <div className="text-center border-x-2 border-gray-400 bg-yellow-50 grid">
                         <p>{code[3]}{code[4]}{code[5]}</p>
                         <p>{code[3]}{code[4]}{code[0]}</p>
                         <p>{code[3]}{code[4]}{code[1]}</p>
