@@ -308,8 +308,8 @@ export default function BuyandWin() {
                         }
                     </div>
                     <p className="w-full text-center border-x-2 bg-pink-100">ยอดซื้อ</p>
-                    <p className="w-full text-center border-x-2 col-span-3 bg-teal-100">ยอดรับ</p>
-                    <p className="w-full text-center border-x-2 bg-green-200">รวมรับ</p>
+                    <p className="w-full text-center border-x-2 col-span-3 bg-teal-100">ยอดได้</p>
+                    <p className="w-full text-center border-x-2 bg-green-200">รวมได้</p>
                     <p className="w-full text-end border-2">ฉก</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy1(e.target.value)} value={buy1} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin11(e.target.value)} value={win11} ref={el => (winRefs.current[11] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[21].focus()} />
@@ -381,13 +381,13 @@ export default function BuyandWin() {
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin112(e.target.value)} value={win112} ref={el => (winRefs.current[112] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[122].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin113(e.target.value)} value={win113} ref={el => (winRefs.current[113] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[123].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" value={win110} readOnly /> */}
-                    <p className="w-full text-end border-2">ดาวโจนส์</p>
+                    <p className="w-full text-end border-2">ดาว</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy12(e.target.value)} value={buy12} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin121(e.target.value)} value={win121} ref={el => (winRefs.current[121] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[131].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin122(e.target.value)} value={win122} ref={el => (winRefs.current[122] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[132].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin123(e.target.value)} value={win123} ref={el => (winRefs.current[123] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[133].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" value={win120} readOnly />
-                    <p className="w-full text-end border-2">ดาวโจนส์V</p>
+                    <p className="w-full text-end border-2">ดาวV</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy13(e.target.value)} value={buy13} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin131(e.target.value)} value={win131} ref={el => (winRefs.current[131] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[11].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin132(e.target.value)} value={win132} ref={el => (winRefs.current[132] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[12].focus()} />
