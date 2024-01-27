@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react"
 
 export default function BuyandWin() {
-    const options = ['ยาย', 'ดา', 'อจ.', 'นช'];
+    const options = ['ยาย', 'ดา', 'อจ.', 'นช', 'ขอนแก่น'];
     const today = new Date();
     const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
 
@@ -25,7 +25,8 @@ export default function BuyandWin() {
             'ยาย': "bg-pink-200",
             'ดา': "bg-green-200",
             'อจ.': "bg-yellow-200",
-            'นช': "bg-blue-200"
+            'นช': "bg-blue-200",
+            'ขอนแก่น': "bg-purple-200"
         })[currentName] || "bg-white")
     }, [currentName])
 
@@ -394,8 +395,8 @@ export default function BuyandWin() {
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin133(e.target.value)} value={win133} ref={el => (winRefs.current[133] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[13].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" value={win130} readOnly />
                     <p className="w-full text-end border-2">{today.getDate()}/{months[today.getMonth()]}</p>
-                    <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9) + Number(buy10) + Number(buy11)}</p>
-                    <p className="border-x-2 text-center bg-green-200 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9) + Number(win100) + Number(win110)}</p>
+                    <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9) + Number(buy10) + Number(buy11) + Number(buy12) + Number(buy13)}</p>
+                    <p className="border-x-2 text-center bg-green-200 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9) + Number(win100) + Number(win110) + Number(win120) + Number(win130)}</p>
                     <p className="w-full text-end border-2 font-bold" onClick={() => { localStorage.clear(); window.location.reload(false); }}>{finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ"}</p>
                     <p className={`text-center font-bold text-lg ${bgColor}`}>{finalResult}</p>
                 </div>
