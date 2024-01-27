@@ -80,8 +80,8 @@ export default function Win() {
                     <option value="ออมสิน">ออมสิน</option>
                     <option value="ลาวTV">ลาวTV</option>
                     <option value="ลาวStar">ลาวStar</option>
-                    <option value="ดาวโจนส์">ดาวโจนส์</option>
                     <option value="ดาวโจนส์V">ดาวโจนส์V</option>
+                    <option value="ดาวโจนส์">ดาวโจนส์</option>
                     <option value="ธกส">ธกส</option>
                 </select>
                 <OneWin fetched={fetched} currentName={currentName} side="L" mode={mode} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />

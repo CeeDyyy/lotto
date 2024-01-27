@@ -67,10 +67,10 @@ export default function BuyandWin() {
         setBuy10(LaoTV || 0);
         const LaoStar = localStorage.getItem(currentName + "2sumลาวStar");
         setBuy11(LaoStar || 0);
-        const Jones = localStorage.getItem(currentName + "2sumดาวโจนส์");
-        setBuy12(Jones || 0);
         const JonesV = localStorage.getItem(currentName + "2sumดาวโจนส์V");
-        setBuy13(JonesV || 0);
+        setBuy12(JonesV || 0);
+        const Jones = localStorage.getItem(currentName + "2sumดาวโจนส์");
+        setBuy13(Jones || 0);
     }, [currentName])
 
     const winRefs = useRef([]);
@@ -382,13 +382,13 @@ export default function BuyandWin() {
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin112(e.target.value)} value={win112} ref={el => (winRefs.current[112] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[122].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin113(e.target.value)} value={win113} ref={el => (winRefs.current[113] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[123].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" value={win110} readOnly /> */}
-                    <p className="w-full text-end border-2">ดาว</p>
+                    <p className="w-full text-end border-2">ดาวV</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy12(e.target.value)} value={buy12} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin121(e.target.value)} value={win121} ref={el => (winRefs.current[121] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[131].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin122(e.target.value)} value={win122} ref={el => (winRefs.current[122] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[132].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin123(e.target.value)} value={win123} ref={el => (winRefs.current[123] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[133].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" value={win120} readOnly />
-                    <p className="w-full text-end border-2">ดาวV</p>
+                    <p className="w-full text-end border-2">ดาว</p>
                     <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy13(e.target.value)} value={buy13} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin131(e.target.value)} value={win131} ref={el => (winRefs.current[131] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[11].focus()} />
                     <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin132(e.target.value)} value={win132} ref={el => (winRefs.current[132] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[12].focus()} />
