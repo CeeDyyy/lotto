@@ -12,7 +12,8 @@ export default function Win() {
             'ยาย': "bg-pink-200",
             'ดา': "bg-green-200",
             'อจ.': "bg-yellow-200",
-            'นช': "bg-blue-200"
+            'นช': "bg-blue-200",
+            'ขอนแก่น': "bg-purple-200"
         })[currentName] || "bg-white")
     }, [currentName])
 
