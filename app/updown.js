@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from "react"
 
 export default function UpDown() {
-    const options = ['ยาย', 'ดา', 'อจ.', 'นช'];
+    const options = ['ยาย', 'ดา', 'อจ.', 'นช', 'ขอนแก่น'];
     const [currentName, setCurrentName] = useState("ยาย");
     const [mode, setMode] = useState("เฉพาะกิจ");
     const [modeGet, setModeGet] = useState("เฉพาะกิจ");

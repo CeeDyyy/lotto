@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect, useReducer } from "react"
 
 export default function Win() {
-    const options = ['ยาย', 'ดา', 'อจ.', 'นช'];
+    const options = ['ยาย', 'ดา', 'อจ.', 'นช', 'ขอนแก่น'];
     const [currentName, setCurrentName] = useState("ยาย");
     const [mode, setMode] = useState("เฉพาะกิจ");
     const [bgColor, setBgColor] = useState("");
