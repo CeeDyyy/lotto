@@ -5,7 +5,7 @@ import React, { useRef, useState, useEffect, useReducer } from "react"
 export default function Win() {
     const options = ['ยาย', 'ดา', 'อจ.', 'นช', 'ขอนแก่น'];
     const [currentName, setCurrentName] = useState("ยาย");
-    const [mode, setMode] = useState("เฉพาะกิจ");
+    const [mode, setMode] = useState("นิเคอิ");
     const [bgColor, setBgColor] = useState("");
     useEffect(() => {
         setBgColor(({
@@ -22,7 +22,7 @@ export default function Win() {
         const saved = localStorage.getItem("currentpage2");
         const jsonsaved = (JSON.parse(saved));
         setCurrentName(jsonsaved?.currentname || "ยาย");
-        setMode(jsonsaved?.currentmode || "เฉพาะกิจ");
+        setMode(jsonsaved?.currentmode || "นิเคอิ");
         setFetched(true);
     }, [])
     useEffect(() => {
@@ -71,18 +71,24 @@ export default function Win() {
                     }
                 </div>
                 <select onChange={(e) => { setMode(e.target.value); }} value={mode} className={`w-full text-center ${bgColor}`}>
+                    <option value="นิเคอิ">นิเคอิ</option>
+                    <option value="ฮั่งเส็ง">ฮั่งเส็ง</option>
+                    <option value="จีน">จีน</option>
+                    <option value="ลาวTV">ลาวTV</option>
+                    <option value="ลาวStar">ลาวStar</option>
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
                     <option value="ปกติ">ปกติ</option>
                     <option value="VIP">VIP</option>
                     <option value="ลาวพัฒนา">ลาวพัฒนา</option>
                     <option value="ลาวสามัคคี">ลาวสามัคคี</option>
-                    <option value="รัฐบาล">รัฐบาล</option>
-                    <option value="ออมสิน">ออมสิน</option>
-                    <option value="ลาวTV">ลาวTV</option>
-                    <option value="ลาวStar">ลาวStar</option>
                     <option value="ดาวโจนส์V">ดาวโจนส์V</option>
                     <option value="ดาวโจนส์">ดาวโจนส์</option>
+                    <option value="รัสเซีย">รัสเซีย</option>
+                    <option value="อังกฤษ">อังกฤษ</option>
+                    <option value="เยอรมัน">เยอรมัน</option>
+                    <option value="รัฐบาล">รัฐบาล</option>
+                    <option value="ออมสิน">ออมสิน</option>
                     <option value="ธกส">ธกส</option>
                 </select>
                 <OneWin fetched={fetched} currentName={currentName} side="L" mode={mode} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />
@@ -182,25 +188,25 @@ function OneWin({ fetched, currentName, side, mode, setSumSide = () => { } }) {
         <div className="grid grid-cols-2">
             <p className="text-lg text-center">{today.getDate() + "/" + months[today.getMonth()]}</p>
             <p className="text-center">เงินได้</p>
-            <div className={`w-full text-end border-2 ${check1 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck1()}>{info1}</div>
+            <div className={`w-full text-end border-2 ${check1 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck1()}>{info1}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win1} onChange={(e) => setWin1(e.target.value)} ref={el => (winRefs.current[1] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[2].focus()} />
-            <div className={`w-full text-end border-2 ${check2 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck2()}>{info2}</div>
+            <div className={`w-full text-end border-2 ${check2 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck2()}>{info2}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win2} onChange={(e) => setWin2(e.target.value)} ref={el => (winRefs.current[2] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[3].focus()} />
-            <div className={`w-full text-end border-2 ${check3 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck3()}>{info3}</div>
+            <div className={`w-full text-end border-2 ${check3 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck3()}>{info3}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win3} onChange={(e) => setWin3(e.target.value)} ref={el => (winRefs.current[3] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[4].focus()} />
-            <div className={`w-full text-end border-2 ${check4 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck4()}>{info4}</div>
+            <div className={`w-full text-end border-2 ${check4 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck4()}>{info4}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win4} onChange={(e) => setWin4(e.target.value)} ref={el => (winRefs.current[4] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[5].focus()} />
-            <div className={`w-full text-end border-2 ${check5 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck5()}>{info5}</div>
+            <div className={`w-full text-end border-2 ${check5 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck5()}>{info5}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win5} onChange={(e) => setWin5(e.target.value)} ref={el => (winRefs.current[5] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[6].focus()} />
-            <div className={`w-full text-end border-2 ${check6 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck6()}>{info6}</div>
+            <div className={`w-full text-end border-2 ${check6 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck6()}>{info6}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win6} onChange={(e) => setWin6(e.target.value)} ref={el => (winRefs.current[6] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[7].focus()} />
-            <div className={`w-full text-end border-2 ${check7 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck7()}>{info7}</div>
+            <div className={`w-full text-end border-2 ${check7 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck7()}>{info7}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win7} onChange={(e) => setWin7(e.target.value)} ref={el => (winRefs.current[7] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[8].focus()} />
-            <div className={`w-full text-end border-2 ${check8 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck8()}>{info8}</div>
+            <div className={`w-full text-end border-2 ${check8 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck8()}>{info8}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win8} onChange={(e) => setWin8(e.target.value)} ref={el => (winRefs.current[8] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[9].focus()} />
-            <div className={`w-full text-end border-2 ${check9 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck9()}>{info9}</div>
+            <div className={`w-full text-end border-2 ${check9 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck9()}>{info9}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win9} onChange={(e) => setWin9(e.target.value)} ref={el => (winRefs.current[9] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[10].focus()} />
-            <div className={`w-full text-end border-2 ${check10 ? "bg-green-200" : "bg-white"}`} onClick={()=>setCheck10()}>{info10}</div>
+            <div className={`w-full text-end border-2 ${check10 ? "bg-green-200" : "bg-white"}`} onClick={() => setCheck10()}>{info10}</div>
             <input type="number" className="w-full text-end border-2 text-red-500" onClick={(e) => e.target.select()} value={win10} onChange={(e) => setWin10(e.target.value)} ref={el => (winRefs.current[10] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[1].focus()} />
             <div className="text-center" onClick={() => setData("")}><p className="collapse">ล้าง</p></div>
             <p>{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9) + Number(win10)}</p>

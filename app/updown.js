@@ -5,8 +5,8 @@ import React, { useRef, useState, useEffect } from "react"
 export default function UpDown() {
     const options = ['ยาย', 'ดา', 'อจ.', 'นช', 'ขอนแก่น'];
     const [currentName, setCurrentName] = useState("ยาย");
-    const [mode, setMode] = useState("เฉพาะกิจ");
-    const [modeGet, setModeGet] = useState("เฉพาะกิจ");
+    const [mode, setMode] = useState("นิเคอิ");
+    const [modeGet, setModeGet] = useState("นิเคอิ");
     const [bgColor, setBgColor] = useState("");
     useEffect(() => {
         setBgColor(({
@@ -23,8 +23,8 @@ export default function UpDown() {
         const saved = localStorage.getItem("currentpage2");
         const jsonsaved = (JSON.parse(saved));
         setCurrentName(jsonsaved?.currentname || "ยาย");
-        setMode(jsonsaved?.currentmode || "เฉพาะกิจ");
-        setModeGet(jsonsaved?.currentmode || "เฉพาะกิจ");
+        setMode(jsonsaved?.currentmode || "นิเคอิ");
+        setModeGet(jsonsaved?.currentmode || "นิเคอิ");
         setFetched(true);
     }, [])
     useEffect(() => {
@@ -73,18 +73,24 @@ export default function UpDown() {
                     }
                 </div>
                 <select onChange={(e) => { setMode(e.target.value); setModeGet(e.target.value); }} value={mode} className={`w-full text-center ${bgColor}`}>
+                    <option value="นิเคอิ">นิเคอิ</option>
+                    <option value="ฮั่งเส็ง">ฮั่งเส็ง</option>
+                    <option value="จีน">จีน</option>
+                    <option value="ลาวTV">ลาวTV</option>
+                    <option value="ลาวStar">ลาวStar</option>
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
                     <option value="ปกติ">ปกติ</option>
                     <option value="VIP">VIP</option>
                     <option value="ลาวพัฒนา">ลาวพัฒนา</option>
                     <option value="ลาวสามัคคี">ลาวสามัคคี</option>
-                    <option value="รัฐบาล">รัฐบาล</option>
-                    <option value="ออมสิน">ออมสิน</option>
-                    <option value="ลาวTV">ลาวTV</option>
-                    <option value="ลาวStar">ลาวStar</option>
                     <option value="ดาวโจนส์V">ดาวโจนส์V</option>
                     <option value="ดาวโจนส์">ดาวโจนส์</option>
+                    <option value="รัสเซีย">รัสเซีย</option>
+                    <option value="อังกฤษ">อังกฤษ</option>
+                    <option value="เยอรมัน">เยอรมัน</option>
+                    <option value="รัฐบาล">รัฐบาล</option>
+                    <option value="ออมสิน">ออมสิน</option>
                     <option value="ธกส">ธกส</option>
                 </select>
                 <OneUpDown fetched={fetched} currentName={currentName} side="L" mode={mode} modeGet={modeGet} bgColor={bgColor} sumSide={sumSideLeft} setSumSide={setSumSideLeft} />
@@ -95,18 +101,24 @@ export default function UpDown() {
                 <p className={`col-span-5 font-black ${bgColor}`}>{sumSideLeft + sumSideRight}</p>
                 <p className="col-span-3 text-end">คัดลอกจาก : </p>
                 <select onChange={(e) => { setModeGet(e.target.value); }} value={modeGet} className={`col-span-3 text-center ${bgColor}`}>
+                    <option value="นิเคอิ">นิเคอิ</option>
+                    <option value="ฮั่งเส็ง">ฮั่งเส็ง</option>
+                    <option value="จีน">จีน</option>
+                    <option value="ลาวTV">ลาวTV</option>
+                    <option value="ลาวStar">ลาวStar</option>
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
                     <option value="พิเศษ">พิเศษ</option>
                     <option value="ปกติ">ปกติ</option>
                     <option value="VIP">VIP</option>
                     <option value="ลาวพัฒนา">ลาวพัฒนา</option>
                     <option value="ลาวสามัคคี">ลาวสามัคคี</option>
-                    <option value="รัฐบาล">รัฐบาล</option>
-                    <option value="ออมสิน">ออมสิน</option>
-                    <option value="ลาวTV">ลาวTV</option>
-                    <option value="ลาวStar">ลาวStar</option>
                     <option value="ดาวโจนส์V">ดาวโจนส์V</option>
                     <option value="ดาวโจนส์">ดาวโจนส์</option>
+                    <option value="รัสเซีย">รัสเซีย</option>
+                    <option value="อังกฤษ">อังกฤษ</option>
+                    <option value="เยอรมัน">เยอรมัน</option>
+                    <option value="รัฐบาล">รัฐบาล</option>
+                    <option value="ออมสิน">ออมสิน</option>
                     <option value="ธกส">ธกส</option>
                 </select>
             </div>
