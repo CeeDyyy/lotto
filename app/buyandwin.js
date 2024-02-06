@@ -376,7 +376,7 @@ export default function BuyandWin() {
 
     const [finalResult, setFinalResult] = useState(0);
     useEffect(() => {
-        setFinalResult((Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9) + Number(win100) + Number(win110) + Number(win120) + Number(win130)) - (Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9) + Number(buy10) + Number(buy11) + Number(buy12) + Number(buy13) + Number(buy14) + Number(buy15) + Number(buy16) + Number(buy17) + Number(buy18) + Number(buy19)))
+        setFinalResult((Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9) + Number(win100) + Number(win110) + Number(win120) + Number(win130) + Number(win140) + Number(win150) + Number(win160) + Number(win170) + Number(win180) + Number(win190)) - (Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9) + Number(buy10) + Number(buy11) + Number(buy12) + Number(buy13) + Number(buy14) + Number(buy15) + Number(buy16) + Number(buy17) + Number(buy18) + Number(buy19)))
     }, [buy1, buy2, buy3, buy4, buy5, buy6, buy7, buy8, buy9, buy10, buy11, buy12, buy13, buy14, buy15, buy16, buy17, buy18, buy19, win1, win2, win3, win4, win5, win6, win7, win8, win9, win100, win110, win120, win130, win140, win150, win160, win170, win180, win190])
 
     const [showOptions, setShowOptions] = useState(false);
@@ -553,8 +553,8 @@ export default function BuyandWin() {
                         </div>
                     </details>
                     <p className="w-full text-end border-2">{today.getDate()}/{months[today.getMonth()]}</p>
-                    <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9) + Number(buy10) + Number(buy11) + Number(buy12) + Number(buy13)}</p>
-                    <p className="border-x-2 text-center bg-green-200 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9) + Number(win100) + Number(win110) + Number(win120) + Number(win130)}</p>
+                    <p className="border-x-2 text-center bg-pink-100 text-lg">{Number(buy1) + Number(buy2) + Number(buy3) + Number(buy4) + Number(buy5) + Number(buy6) + Number(buy7) + Number(buy8) + Number(buy9) + Number(buy10) + Number(buy11) + Number(buy12) + Number(buy13) + Number(buy14) + Number(buy15) + Number(buy16) + Number(buy17) + Number(buy18) + Number(buy19)}</p>
+                    <p className="border-x-2 text-center bg-green-200 text-lg col-span-4">{Number(win1) + Number(win2) + Number(win3) + Number(win4) + Number(win5) + Number(win6) + Number(win7) + Number(win8) + Number(win9) + Number(win100) + Number(win110) + Number(win120) + Number(win130) + Number(win140) + Number(win150) + Number(win160) + Number(win170) + Number(win180) + Number(win190)}</p>
                     <p className="w-full text-end border-2 font-bold" onClick={() => { localStorage.clear(); window.location.reload(false); }}>{finalResult < 0 ? "ขาดทุน" : finalResult > 0 ? "กำไร" : "สุทธิ"}</p>
                     <p className={`text-center font-bold text-lg ${bgColor}`}>{finalResult}</p>
                 </div>
