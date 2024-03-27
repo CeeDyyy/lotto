@@ -61,7 +61,7 @@ export default function Combination() {
                 )}
             </div>
             <div className="flex">
-                <button onClick={() => typeIndex < 3 ? setTypeIndex(typeIndex + 1) : setTypeIndex(0)} className="w-24">{type[typeIndex]}</button>
+                <button onClick={() => typeIndex < 5 ? setTypeIndex(typeIndex + 1) : setTypeIndex(0)} className="w-24">{type[typeIndex]}</button>
                 <div className="mt-6 mx-auto grid grid-cols-4 h-[60vh] text-2xl">
                     <div className="text-end grid">
                         <p>1</p>
