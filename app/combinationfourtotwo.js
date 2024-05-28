@@ -55,6 +55,7 @@ export default function CombinationFourToTwo() {
                         <p>{code[0]}{code[3]}</p>
                         <p>{code[1]}{code[2]}</p>
                         <p>{code[1]}{code[3]}</p>
+                        <p>{code[2]}{code[3]}</p>
                     </div>
                 </div>
             </div>
