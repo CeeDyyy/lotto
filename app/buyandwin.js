@@ -428,7 +428,7 @@ export default function BuyandWin() {
                             <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin22(e.target.value)} value={win22} ref={el => (winRefs.current[22] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[32].focus()} />
                             <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin23(e.target.value)} value={win23} ref={el => (winRefs.current[23] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[33].focus()} />
                             <input type="number" className="w-full text-end border-2 bg-green-100 text-lg" value={win2} readOnly />
-                            <p className="w-full text-end border-2">จีน</p>
+                            <p className="w-full text-end border-2">ไต้หวัน</p>
                             <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy3(e.target.value)} value={buy3} />
                             <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin31(e.target.value)} value={win31} ref={el => (winRefs.current[31] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[41].focus()} />
                             <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin32(e.target.value)} value={win32} ref={el => (winRefs.current[32] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[42].focus()} />
