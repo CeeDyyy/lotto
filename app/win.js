@@ -73,7 +73,7 @@ export default function Win() {
                 <select onChange={(e) => { setMode(e.target.value); }} value={mode} className={`w-full text-center ${bgColor}`}>
                     <option value="นิเคอิ">นิเคอิ</option>
                     <option value="ฮั่งเส็ง">ฮั่งเส็ง</option>
-                    <option value="จีน">จีน</option>
+                    <option value="จีน">ไต้หวัน</option>
                     <option value="ลาวTV">ลาวTV</option>
                     <option value="ลาวStar">ลาวStar</option>
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>
