@@ -3,15 +3,15 @@
 import React, { useRef, useState, useEffect, useReducer } from "react"
 
 export default function Win() {
-    const options = ['ยาย', 'ดา', 'อจ.', 'นช', 'ขอนแก่น'];
-    const [currentName, setCurrentName] = useState("ยาย");
-    const [mode, setMode] = useState("นิเคอิ");
+    const options = ['อจ.', 'ดา', 'ยาย', 'นช', 'ขอนแก่น'];
+    const [currentName, setCurrentName] = useState("อจ.");
+    const [mode, setMode] = useState("จีน");
     const [bgColor, setBgColor] = useState("");
     useEffect(() => {
         setBgColor(({
-            'ยาย': "bg-pink-200",
-            'ดา': "bg-green-200",
             'อจ.': "bg-yellow-200",
+            'ดา': "bg-green-200",
+            'ยาย': "bg-pink-200",
             'นช': "bg-blue-200",
             'ขอนแก่น': "bg-purple-200"
         })[currentName] || "bg-white")
@@ -21,8 +21,8 @@ export default function Win() {
     useEffect(() => {
         const saved = localStorage.getItem("currentpage2");
         const jsonsaved = (JSON.parse(saved));
-        setCurrentName(jsonsaved?.currentname || "ยาย");
-        setMode(jsonsaved?.currentmode || "นิเคอิ");
+        setCurrentName(jsonsaved?.currentname || "อจ.");
+        setMode(jsonsaved?.currentmode || "จีน");
         setFetched(true);
     }, [])
     useEffect(() => {
@@ -71,9 +71,9 @@ export default function Win() {
                     }
                 </div>
                 <select onChange={(e) => { setMode(e.target.value); }} value={mode} className={`w-full text-center ${bgColor}`}>
-                    <option value="นิเคอิ">นิเคอิ</option>
+                    <option value="จีน">จีน</option>
                     <option value="ฮั่งเส็ง">ฮั่งเส็ง</option>
-                    <option value="จีน">ไต้หวัน</option>
+                    <option value="ไต้หวัน">ไต้หวัน</option>
                     <option value="ลาวTV">ลาวTV</option>
                     <option value="ลาวStar">ลาวStar</option>
                     <option value="เฉพาะกิจ">เฉพาะกิจ</option>

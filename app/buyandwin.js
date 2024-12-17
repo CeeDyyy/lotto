@@ -3,15 +3,15 @@
 import React, { useRef, useState, useEffect } from "react"
 
 export default function BuyandWin() {
-    const options = ['ยาย', 'ดา', 'อจ.', 'นช', 'ขอนแก่น'];
+    const options = ['อจ.', 'ดา', 'ยาย', 'นช', 'ขอนแก่น'];
     const today = new Date();
     const months = ["มค", "กพ", "มีค", "เมย", "พค", "มิย", "กค", "สค", "กย", "ตค", "พย", "ธค",]
 
-    const [currentName, setCurrentName] = useState("ยาย");
+    const [currentName, setCurrentName] = useState("อจ.");
     const [fetched, setFetched] = useState(false);
     useEffect(() => {
         const saved = localStorage.getItem("currentpage3");
-        setCurrentName(saved || "ยาย");
+        setCurrentName(saved || "อจ.");
         setFetched(true);
     }, [])
     useEffect(() => {
@@ -22,9 +22,9 @@ export default function BuyandWin() {
     const [bgColor, setBgColor] = useState("bg-white");
     useEffect(() => {
         setBgColor(({
-            'ยาย': "bg-pink-200",
-            'ดา': "bg-green-200",
             'อจ.': "bg-yellow-200",
+            'ดา': "bg-green-200",
+            'ยาย': "bg-pink-200",
             'นช': "bg-blue-200",
             'ขอนแก่น': "bg-purple-200"
         })[currentName] || "bg-white")
@@ -51,11 +51,11 @@ export default function BuyandWin() {
     const [buy19, setBuy19] = useState(0);
 
     useEffect(() => {
-        const Nikeii = localStorage.getItem(currentName + "2sumนิเคอิ");
+        const Nikeii = localStorage.getItem(currentName + "2sumจีน");
         setBuy1(Nikeii || 0);
         const Hunksenk = localStorage.getItem(currentName + "2sumฮั่งเส็ง");
         setBuy2(Hunksenk || 0);
-        const China = localStorage.getItem(currentName + "2sumจีน");
+        const China = localStorage.getItem(currentName + "2sumไต้หวัน");
         setBuy3(China || 0);
         const LaoTV = localStorage.getItem(currentName + "2sumลาวTV");
         setBuy4(LaoTV || 0);
@@ -416,7 +416,7 @@ export default function BuyandWin() {
                     <details className="col-span-6">
                         <summary>เช้า</summary>
                         <div className="grid grid-cols-6">
-                            <p className="w-full text-end border-2">นิเคอิ</p>
+                            <p className="w-full text-end border-2">จีน</p>
                             <input type="number" className="w-full text-end border-2 bg-pink-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setBuy1(e.target.value)} value={buy1} />
                             <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin11(e.target.value)} value={win11} ref={el => (winRefs.current[11] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[21].focus()} />
                             <input type="number" className="w-full text-end border-2 bg-teal-100 text-lg" onClick={(e) => e.target.select()} onChange={(e) => setWin12(e.target.value)} value={win12} ref={el => (winRefs.current[12] = el)} onKeyDown={(e) => e.key === "Enter" && winRefs.current[22].focus()} />
