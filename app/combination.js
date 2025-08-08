@@ -6,7 +6,7 @@ export default function Combination() {
     const digits = 6
     const digitRefs = useRef([]);
     const [code, setCode] = useState([])
-    const type = ["3 ตัว คิม", "ดาวโจนส์ VIP", "ลาว คิม", "ดาวโจนส์", "3 ตัว ญา", "ลาว ญา", "ลาว TV", "จีน"]
+    const type = ["3 ตัว คิม", "ดาวโจนส์ VIP", "ลาว คิม", "ดาวโจนส์ ปกติ", "3 ตัว ญา", "ลาว ญา", "ลาว TV", "จีน"]
     const [typeIndex, setTypeIndex] = useState(0)
 
     function setCodeArray(index, value) {
